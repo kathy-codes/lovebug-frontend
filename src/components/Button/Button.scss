@@ -3,7 +3,6 @@
 @use "../../styles/mixins" as *;
 
 .button {
-    font-family: $font-family-primary;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +14,8 @@
     cursor: pointer;
 
     &--primary {
-        background-color: $color-primary-indigo;
-        color: $color-primary-white;
+        background-color: $color-primary-white;
+        color: $color-primary-black;
 
         &:hover {
             opacity: 80%;
