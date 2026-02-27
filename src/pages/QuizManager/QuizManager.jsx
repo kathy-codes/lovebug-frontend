@@ -130,8 +130,10 @@ const QuizManager = ({ responses, setResponses }) => {
             </div>
 
             <div className="quiz-controls">
-                {step > 1 && (
+                {step > 1 ? (
                     <Button onClick={handlePrev}>Back</Button>
+                ) : (
+                    <Button isLink to="/" variant="secondary">Cancel</Button>
                 )}
                 
                 {step < totalSteps ? (
