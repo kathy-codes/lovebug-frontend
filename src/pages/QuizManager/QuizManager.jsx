@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
 import Age from "../../components/quizquestions/Age/Age.jsx";
 import Education from "../../components/quizquestions/Education/Education.jsx";
+import Location from "../../components/quizquestions/Location/Location.jsx";
+import CareerField from "../../components/quizquestions/CareerField/CareerField.jsx";
+import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -37,9 +40,24 @@ const QuizManager = ({ responses, setResponses }) => {
                     setAge={(newAge) => setResponses({ ...responses, age: newAge })} 
                 />
             case 2:
+                return <Location
+                    location={responses?.location}
+                    setLocation={(newLocation) => setResponses({ ...responses, location: newLocation })}
+                />
+            case 3:
                 return <Education
                     education={responses?.education}
                     setEducation={(newEducation) => setResponses({ ...responses, education: newEducation })}
+                />
+            case 4:
+                return <CareerField
+                    careerField={responses?.career_field}
+                    setCareerField={(newCareerField) => setResponses({ ...responses, career_field: newCareerField })}
+                />
+            case 5:
+                return <CareerAmbition
+                    careerAmbition={responses?.career_ambition}
+                    setCareerAmbition={(newCareerAmbition) => setResponses({ ...responses, career_ambition: newCareerAmbition })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
