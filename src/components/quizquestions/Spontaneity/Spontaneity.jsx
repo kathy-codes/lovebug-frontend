@@ -17,7 +17,7 @@ const Spontaneity = ({ spontaneity, setSpontaneity }) => {
     
     return (
         <div className="spontaneity-container">
-            <h2>In social settings, your energy is usually…</h2>
+            <h2>Surprise last-minute plans?</h2>
             <div className="spontaneity-options-list">
                 {spontaneities.map((item, index) => {
                     const value = calculateValue(index);

@@ -12,6 +12,7 @@ import LoveLanguage from "../../components/quizquestions/LoveLanguage/LoveLangua
 import Agreeableness from "../../components/quizquestions/Agreeableness/Agreeableness.jsx";
 import Openness from "../../components/quizquestions/Openness/Openness.jsx";
 import Spontaneity from "../../components/quizquestions/Spontaneity/Spontaneity.jsx";
+import Chronotype from "../../components/quizquestions/Chronotype/Chronotype.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -94,6 +95,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Spontaneity
                     spontaneity={responses?.spontaneity}
                     setSpontaneity={(newSpontaneity) => setResponses({ ...responses, spontaneity: newSpontaneity })}
+                />
+            case 12:
+                return <Chronotype
+                    chronotype={responses?.chronotype}
+                    setChronotype={(newChronotype) => setResponses({ ...responses, chronotype: newChronotype })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
