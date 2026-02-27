@@ -24,18 +24,18 @@
 
     &--secondary {
         background-color: $color-primary-white;
-        color: $color-secondary-slate;
-        border: 1px solid $color-secondary-cloud;
+        color: $color-tertiary-paleshell;
+        border: 1px solid $color-tertiary-paleshell;
 
         &:hover {
             background: $color-primary-white;
-            box-shadow: 0px 0px 0px 1px $color-secondary-slate inset,
+            box-shadow: 0px 0px 0px 1px $color-tertiary-paleshell inset,
                 0px 0px 0px 3px $color-primary-white inset;
         }
     }
 
     &--delete {
-        background-color: $color-supporting-red;
+        background-color: $color-primary-red;
         color: $color-primary-white;
 
         &:hover {
@@ -44,8 +44,8 @@
     }
 
     &:disabled {
-        background-color: $color-secondary-cloud;
-        color: $color-secondary-slate;
+        background-color: $color-tertiary-paleshell;
+        color: $color-tertiary-paleshell;
         opacity: 0.5;
         cursor: not-allowed;
         pointer-events: none;

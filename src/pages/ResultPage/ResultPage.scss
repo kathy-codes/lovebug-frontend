@@ -1,0 +1,17 @@
+@use '../../styles/variables' as *;
+
+.result-page {
+    font-family: $font-family-primary;
+    color: $color-primary-black;
+    background-color: $color-background;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &__main {
+        flex: 1;
+        padding-bottom: 4rem;
+    }
+}
