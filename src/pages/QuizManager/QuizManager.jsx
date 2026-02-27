@@ -116,14 +116,18 @@ const QuizManager = ({ responses, setResponses }) => {
 
     return (
         <div className="quiz-manager">
+            <div className="quiz-progress-header">
+                <div className="quiz-step-tracker">
+                    {step} / {totalSteps}
+                </div>
+            </div>
+            
             <div className="quiz-progress-container">
                 <div 
                     className="quiz-progress-bar" 
                     style={{ width: `${progressPercentage}%` }}
                 ></div>
             </div>
-            
-            <h2>Question {step} of {totalSteps}</h2>
             
             <div className="quiz-content">
                 {renderStepContent()}
