@@ -1,0 +1,9 @@
+@use "./variables" as *;
+@use "./functions" as *;
+
+body {
+    color: $color-primary-black;
+    background-color: $color-background-light-grey;
+    margin: 0;
+    box-sizing: border-box;
+}
