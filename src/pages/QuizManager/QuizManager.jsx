@@ -6,6 +6,7 @@ import Education from "../../components/quizquestions/Education/Education.jsx";
 import Location from "../../components/quizquestions/Location/Location.jsx";
 import CareerField from "../../components/quizquestions/CareerField/CareerField.jsx";
 import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
+import Extraversion from "../../components/quizquestions/Extraversion/Extraversion.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -58,6 +59,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <CareerAmbition
                     careerAmbition={responses?.career_ambition}
                     setCareerAmbition={(newCareerAmbition) => setResponses({ ...responses, career_ambition: newCareerAmbition })}
+                />
+            case 6:
+                return <Extraversion
+                    extraversion={responses?.extraversion}
+                    setExtraversion={(newExtraversion) => setResponses({ ...responses, extraversion: newExtraversion })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
