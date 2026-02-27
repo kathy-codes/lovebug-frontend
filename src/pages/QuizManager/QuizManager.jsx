@@ -10,6 +10,7 @@ import Extraversion from "../../components/quizquestions/Extraversion/Extraversi
 import Conscientiousness from "../../components/quizquestions/Conscientiousness/Conscientiousness.jsx";
 import LoveLanguage from "../../components/quizquestions/LoveLanguage/LoveLanguage.jsx";
 import Agreeableness from "../../components/quizquestions/Agreeableness/Agreeableness.jsx";
+import Openness from "../../components/quizquestions/Openness/Openness.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -82,6 +83,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Agreeableness
                     agreeableness={responses?.agreeableness}
                     setAgreeableness={(newAgreeableness) => setResponses({ ...responses, agreeableness: newAgreeableness })}
+                />
+            case 10:
+                return <Openness
+                    openness={responses?.openness}
+                    setOpenness={(newOpenness) => setResponses({ ...responses, openness: newOpenness })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
