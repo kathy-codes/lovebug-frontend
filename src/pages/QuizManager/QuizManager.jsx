@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
 import Age from "../../components/quizquestions/Age/Age.jsx";
+import Education from "../../components/quizquestions/Education/Education.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -12,6 +13,7 @@ const QuizManager = ({ responses, setResponses }) => {
     const handleNext = () => {
         if (step < totalSteps) {
             setStep((prev) => prev + 1);
+            console.log(responses);
         }
     };
 
@@ -33,6 +35,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Age 
                     age={responses?.age} 
                     setAge={(newAge) => setResponses({ ...responses, age: newAge })} 
+                />
+            case 2:
+                return <Education
+                    education={responses?.education}
+                    setEducation={(newEducation) => setResponses({ ...responses, education: newEducation })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
