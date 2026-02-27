@@ -7,6 +7,7 @@ import Location from "../../components/quizquestions/Location/Location.jsx";
 import CareerField from "../../components/quizquestions/CareerField/CareerField.jsx";
 import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
 import Extraversion from "../../components/quizquestions/Extraversion/Extraversion.jsx";
+import Conscientiousness from "../../components/quizquestions/Conscientiousness/Conscientiousness.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -64,6 +65,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Extraversion
                     extraversion={responses?.extraversion}
                     setExtraversion={(newExtraversion) => setResponses({ ...responses, extraversion: newExtraversion })}
+                />
+            case 7:
+                return <Conscientiousness
+                    conscientiousness={responses?.conscientiousness}
+                    setConscientiousness={(newConscientiousness) => setResponses({ ...responses, conscientiousness: newConscientiousness })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
