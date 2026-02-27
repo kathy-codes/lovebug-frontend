@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
+import Age from "../../components/quizquestions/Age/Age.jsx";
+import Education from "../../components/quizquestions/Education/Education.jsx";
 import "./QuizManager.scss";
 
-const QuizManager = () => {
+const QuizManager = ({ responses, setResponses }) => {
     // We have 10 steps. Let's use 1-based indexing for the UI.
     const [step, setStep] = useState(1);
     const totalSteps = 10;
@@ -11,6 +13,7 @@ const QuizManager = () => {
     const handleNext = () => {
         if (step < totalSteps) {
             setStep((prev) => prev + 1);
+            console.log(responses);
         }
     };
 
@@ -21,8 +24,26 @@ const QuizManager = () => {
     };
 
     const handleSubmit = () => {
-        console.log("Quiz submitted!");
+        console.log("Quiz submitted!", responses);
         // Add your submit logic here
+    };
+
+    // Render the appropriate component based on the current step
+    const renderStepContent = () => {
+        switch (step) {
+            case 1:
+                return <Age 
+                    age={responses?.age} 
+                    setAge={(newAge) => setResponses({ ...responses, age: newAge })} 
+                />
+            case 2:
+                return <Education
+                    education={responses?.education}
+                    setEducation={(newEducation) => setResponses({ ...responses, education: newEducation })}
+                />
+            default:
+                return <p>Content for step {step} goes here...</p>;
+        }
     };
 
     return (
@@ -30,8 +51,7 @@ const QuizManager = () => {
             <h2>Question {step} of {totalSteps}</h2>
             
             <div className="quiz-content">
-                {/* Placeholder for the question presentation */}
-                <p>Content for step {step} goes here...</p>
+                {renderStepContent()}
             </div>
 
             <div className="quiz-controls">
