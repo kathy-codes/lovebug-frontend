@@ -11,6 +11,7 @@ import Conscientiousness from "../../components/quizquestions/Conscientiousness/
 import LoveLanguage from "../../components/quizquestions/LoveLanguage/LoveLanguage.jsx";
 import Agreeableness from "../../components/quizquestions/Agreeableness/Agreeableness.jsx";
 import Openness from "../../components/quizquestions/Openness/Openness.jsx";
+import Spontaneity from "../../components/quizquestions/Spontaneity/Spontaneity.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -88,6 +89,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Openness
                     openness={responses?.openness}
                     setOpenness={(newOpenness) => setResponses({ ...responses, openness: newOpenness })}
+                />
+            case 11:
+                return <Spontaneity
+                    spontaneity={responses?.spontaneity}
+                    setSpontaneity={(newSpontaneity) => setResponses({ ...responses, spontaneity: newSpontaneity })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
