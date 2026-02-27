@@ -8,12 +8,13 @@ import CareerField from "../../components/quizquestions/CareerField/CareerField.
 import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
 import Extraversion from "../../components/quizquestions/Extraversion/Extraversion.jsx";
 import Conscientiousness from "../../components/quizquestions/Conscientiousness/Conscientiousness.jsx";
+import LoveLanguage from "../../components/quizquestions/LoveLanguage/LoveLanguage.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
     // We have 10 steps. Let's use 1-based indexing for the UI.
     const [step, setStep] = useState(1);
-    const totalSteps = 10;
+    const totalSteps = 13;
     
     const handleNext = () => {
         if (step < totalSteps) {
@@ -70,6 +71,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Conscientiousness
                     conscientiousness={responses?.conscientiousness}
                     setConscientiousness={(newConscientiousness) => setResponses({ ...responses, conscientiousness: newConscientiousness })}
+                />
+            case 8:
+                return <LoveLanguage
+                    loveLanguage={responses?.love_language}
+                    setLoveLanguage={(newLoveLanguage) => setResponses({ ...responses, love_language: newLoveLanguage })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
