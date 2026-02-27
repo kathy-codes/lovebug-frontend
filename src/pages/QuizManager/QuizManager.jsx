@@ -13,6 +13,7 @@ import Agreeableness from "../../components/quizquestions/Agreeableness/Agreeabl
 import Openness from "../../components/quizquestions/Openness/Openness.jsx";
 import Spontaneity from "../../components/quizquestions/Spontaneity/Spontaneity.jsx";
 import Chronotype from "../../components/quizquestions/Chronotype/Chronotype.jsx";
+import EmotionalExpressiveness from "../../components/quizquestions/EmotionalExpressiveness/EmotionalExpressiveness.jsx";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -100,6 +101,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <Chronotype
                     chronotype={responses?.chronotype}
                     setChronotype={(newChronotype) => setResponses({ ...responses, chronotype: newChronotype })}
+                />
+            case 13:
+                return <EmotionalExpressiveness
+                    emotionalExpressiveness={responses?.emotional_expressiveness}
+                    setEmotionalExpressiveness={(newExpressiveness) => setResponses({ ...responses, emotional_expressiveness: newExpressiveness })}
                 />
             default:
                 return <p>Content for step {step} goes here...</p>;
