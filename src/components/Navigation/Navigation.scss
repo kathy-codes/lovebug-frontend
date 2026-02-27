@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+
+.landing-page {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        background-color: rgba($color-primary-white, 0.95);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba($color-secondary-cloud, 0.3);
+
+        @media (min-width: $max-width-md) {
+            padding: 1rem 10%;
+        }
+    }
+
+    &__logo-link {
+        text-decoration: none;
+    }
+
+    &__logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $color-primary-black;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        letter-spacing: -0.5px;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__nav-link {
+        color: $color-secondary-slate;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $color-primary-black;
+        }
+    }
+
+    &__nav-button {
+        background-color: $color-supporting-red;
+        color: $color-primary-white;
+        padding: 0.5rem 1.25rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: darken($color-supporting-red, 10%);
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QuizManager from "./pages/QuizManager/QuizManager.jsx"
+import LandingPage from "./pages/LandingPage/LandingPage.jsx"
 
 
 function App() {
@@ -19,16 +20,16 @@ function App() {
     love_language: "",
     emotional_expressiveness: ""
   });
-  
+
 
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/quizmanager" replace />} />
-        <Route path="/quizmanager" element={<QuizManager responses={responses} setResponses={setResponses} />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/quizmanager" element={<QuizManager responses={responses} setResponses={setResponses} />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
