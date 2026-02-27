@@ -3,7 +3,7 @@
 .landing-page__footer {
     padding: 3rem 5%;
     background-color: $color-primary-white;
-    border-top: 1px solid rgba($color-secondary-cloud, 0.3);
+    border-top: 1px solid rgba($color-tertiary-paleshell, 0.3);
     text-align: center;
 
     @media (min-width: $max-width-md) {
@@ -13,5 +13,5 @@
 
 .footer-brand {
     font-weight: 600;
-    color: $color-secondary-slate;
+    color: $color-tertiary-paleshell;
 }

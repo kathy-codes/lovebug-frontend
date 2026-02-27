@@ -34,16 +34,16 @@
 }
 
 .feature-card {
-    background-color: $color-background-light-grey;
+    background-color: $color-background;
     border-radius: 16px;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba($color-secondary-cloud, 0.2);
+    border: 1px solid rgba($color-tertiary-paleshell, 0.2);
 
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 30px rgba(19, 24, 44, 0.05);
-        border-color: rgba($color-secondary-slate, 0.2);
+        border-color: rgba($color-tertiary-paleshell, 0.2);
     }
 
     &__icon {
@@ -67,7 +67,7 @@
     }
 
     &__description {
-        color: $color-secondary-slate;
+        color: $color-tertiary-paleshell;
         font-size: 0.95rem;
         line-height: 1.6;
     }

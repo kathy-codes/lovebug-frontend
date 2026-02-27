@@ -2,7 +2,7 @@
 
 .cta-section {
     padding: 6rem 5%;
-    background-color: $color-background-graphite;
+    background-color: $color-secondary-navy;
     text-align: center;
     color: $color-primary-white;
 
@@ -23,7 +23,7 @@
 
     &__subtitle {
         font-size: 1.25rem;
-        color: lighten($color-secondary-slate, 20%);
+        color: lighten($color-tertiary-paleshell, 20%);
         margin-bottom: 3rem;
     }
 }
