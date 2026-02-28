@@ -4,8 +4,8 @@
 
 .quiz-manager {
     max-width: $max-width-md;
-    margin: pxToRem(40) pxToRem(40);
-    padding: 2rem;
+    margin: 1rem;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     min-height: 70vh;
@@ -15,6 +15,7 @@
 
     @include tablet {
         margin: pxToRem(68) auto;
+        padding: 2rem;
     }
 
     h2 {
@@ -85,19 +86,33 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-    width: 50%;
+    width: 100%;
     align-self: center;
     background-color: $color-primary-white;
     border-radius: 28px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    padding: 2rem;
-    min-height: 400px;
+    padding: 1.5rem;
+    min-height: 350px;
+
+    @include tablet {
+        width: 60%;
+        padding: 2rem;
+        min-height: 400px;
+    }
 }
 
 .quiz-controls {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 1rem;
     margin-top: auto;
-    padding-top: 2rem;
+    padding-top: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        gap: 1.5rem;
+        padding-top: 2rem;
+    }
 }
