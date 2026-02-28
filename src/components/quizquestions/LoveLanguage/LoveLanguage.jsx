@@ -2,31 +2,26 @@ import "./LoveLanguage.scss";
 
 const LoveLanguage = ({ loveLanguage, setLoveLanguage }) => {
     const loveLanguages = [
-        "Receiving Gifts",
-        "Quality Time",
-        "Words of Affirmation",
-        "Acts of Service",
-        "Physical Touch"
+        "Quality time",
+        "Receiving gifts",
+        "Words of affirmation",
+        "Acts of service",
+        "Physical touch"
     ];
     
     return (
         <div className="love-language-container">
-            <h2>What is your love language?</h2>
+            <h2>What’s your love language?</h2>
             <div className="love-language-options-list">
                 {loveLanguages.map((language) => (
-                    <div key={language} className="love-language-option">
-                        <label>
-                            <input 
-                                type="radio" 
-                                name="loveLanguage" 
-                                value={language}
-                                checked={loveLanguage === language}
-                                onChange={() => setLoveLanguage(language)}
-                            />
-                            {/* Wrap in span for easy swapping to icons later */}
-                            <span className="love-language-text">{language}</span>
-                        </label>
-                    </div>
+                    <button 
+                        key={language}
+                        type="button"
+                        className={`love-language-button ${loveLanguage === language ? 'selected' : ''}`}
+                        onClick={() => setLoveLanguage(language)}
+                    >
+                        {language}
+                    </button>
                 ))}
             </div>
         </div>
