@@ -1,0 +1,191 @@
+@use '../../styles/variables' as *;
+
+.beyond-swipe {
+    padding: 6rem 5%;
+    max-width: $max-width-lg;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (min-width: 900px) {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: $color-secondary-navy;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+    }
+
+    &__subtitle {
+        font-size: 1.125rem;
+        color: $color-primary-black;
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+        opacity: 0.8;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .list-item {
+        position: relative;
+        padding-left: 1.5rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            background-color: $color-primary-red;
+            border-radius: 2px;
+        }
+
+        &__title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: $color-secondary-navy;
+            margin: 0 0 0.25rem 0;
+        }
+
+        &__desc {
+            font-size: 1rem;
+            color: $color-primary-black;
+            margin: 0;
+            opacity: 0.7;
+        }
+    }
+
+    &__btn {
+        background-color: $color-secondary-navy;
+        color: $color-primary-white;
+        border-color: $color-secondary-navy;
+
+        &:hover {
+            background-color: darken($color-secondary-navy, 10%);
+            border-color: darken($color-secondary-navy, 10%);
+            color: $color-primary-white;
+        }
+    }
+
+    &__graphic {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        @media (min-width: 900px) {
+            justify-content: flex-end;
+        }
+    }
+}
+
+.compatibility-card {
+    background-color: $color-primary-white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 30px 60px rgba($color-secondary-navy, 0.15);
+    border: 1px solid rgba($color-tertiary-paleshell, 0.3);
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: $color-secondary-navy;
+        margin-bottom: 2rem;
+    }
+
+    .factor-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .factor-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: $color-primary-black;
+        }
+
+        &__percentage {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: $color-secondary-navy;
+        }
+
+        &__bar-bg {
+            height: 8px;
+            background-color: $color-tertiary-paleshell;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        &__bar-fill {
+            height: 100%;
+            background-color: $color-secondary-navy;
+            border-radius: 4px;
+        }
+    }
+
+    // Custom colors for specific factors as requested
+    .factor-item:nth-child(1) .factor-item__bar-fill {
+        background-color: $color-primary-red;
+    }
+
+    .factor-item:nth-child(3) .factor-item__bar-fill {
+        background-color: $color-accent-yellow;
+    }
+
+    .factor-item:nth-child(4) .factor-item__bar-fill {
+        background-color: $color-tertiary-paleshell;
+    }
+
+    &__testimonial {
+        background-color: rgba($color-accent-yellow, 0.1);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border-left: 4px solid $color-primary-red;
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            margin: 0 0 0.75rem 0;
+            color: $color-primary-black;
+            line-height: 1.5;
+        }
+
+        .testimonial-author {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: $color-secondary-navy;
+        }
+    }
+}

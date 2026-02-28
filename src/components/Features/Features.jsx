@@ -1,39 +1,38 @@
 import React from 'react';
 import './Features.scss';
 
+const FEATURES = [
+    {
+        number: "01",
+        title: "Complete Your Profile",
+        description: "Share your personality, values, and what you're looking for in a meaningful relationship."
+    },
+    {
+        number: "02",
+        title: "Discover Compatibility",
+        description: "Our intelligent matching algorithm analyzes deep compatibility factors beyond surface level."
+    },
+    {
+        number: "03",
+        title: "Connect Authentically",
+        description: "See transparent match scores and start conversations with people who truly align with you."
+    }
+];
+
 const Features = () => {
     return (
         <section id="how-it-works" className="features">
-            <h2 className="features__title">Dating, Reimagined</h2>
+            <h2 className="features__title">How LoveBug Works</h2>
+            <p className="features__subtitle">A thoughtful approach to finding your perfect match</p>
+
             <div className="features__grid">
-                <div className="feature-card">
-                    <div className="feature-card__icon">🧠</div>
-                    <h3 className="feature-card__title">Quiz-Based Matching</h3>
-                    <p className="feature-card__description">
-                        Say goodbye to shallow swiping. Answer a curated series of questions to find matches based on deep compatibility, not just a quick glance.
-                    </p>
-                </div>
-                <div className="feature-card">
-                    <div className="feature-card__icon">⏱️</div>
-                    <h3 className="feature-card__title">Frictionless Onboarding</h3>
-                    <p className="feature-card__description">
-                        We respect your time. Get started quickly with an onboarding process that's thoughtful but never tedious or excessively long.
-                    </p>
-                </div>
-                <div className="feature-card">
-                    <div className="feature-card__icon">✨</div>
-                    <h3 className="feature-card__title">Build Confidence</h3>
-                    <p className="feature-card__description">
-                        Our approach fosters authentic conversations and highlights your true self, keeping your confidence high throughout your journey.
-                    </p>
-                </div>
-                <div className="feature-card">
-                    <div className="feature-card__icon">🔋</div>
-                    <h3 className="feature-card__title">Zero Burnout</h3>
-                    <p className="feature-card__description">
-                        Focus on quality over quantity. Lovebug provides curated, meaningful matches so you don't exhaust yourself navigating endless profiles.
-                    </p>
-                </div>
+                {FEATURES.map((feature, index) => (
+                    <div key={index} className="feature-card">
+                        <div className="feature-card__number">{feature.number}</div>
+                        <h3 className="feature-card__title">{feature.title}</h3>
+                        <p className="feature-card__description">{feature.description}</p>
+                    </div>
+                ))}
             </div>
         </section>
     );

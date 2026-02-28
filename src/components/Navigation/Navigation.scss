@@ -25,41 +25,95 @@
     &__logo {
         font-size: 1.5rem;
         font-weight: 800;
-        color: $color-primary-black;
+        color: $color-secondary-navy;
         display: flex;
         align-items: center;
         gap: 0.5rem;
         letter-spacing: -0.5px;
     }
 
+    &__hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 101;
+
+        @media (max-width: 767px) {
+            display: flex;
+        }
+
+        span {
+            width: 100%;
+            height: 3px;
+            background-color: $color-secondary-navy;
+            border-radius: 10px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        &.open {
+            span:first-child {
+                transform: rotate(45deg);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            span:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
     &__nav {
         display: flex;
         align-items: center;
         gap: 1.5rem;
-    }
 
-    &__nav-link {
-        color: $color-tertiary-paleshell;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
+        @media (max-width: 767px) {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba($color-primary-white, 0.98);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            padding: 2rem;
+            gap: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-150%);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            pointer-events: none;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
 
-        &:hover {
-            color: $color-primary-black;
+            &.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
         }
     }
 
-    &__nav-button {
-        background-color: $color-primary-red;
-        color: $color-primary-white;
-        padding: 0.5rem 1.25rem;
-        border-radius: 6px;
+    &__nav-link {
+        color: $color-primary-black;
         text-decoration: none;
         font-weight: 600;
-        transition: background-color 0.2s;
+        font-size: 0.95rem;
+        transition: color 0.2s;
 
         &:hover {
-            background-color: darken($color-primary-red, 10%);
+            color: $color-secondary-navy;
         }
     }
 }
