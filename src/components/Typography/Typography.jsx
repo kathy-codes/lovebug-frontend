@@ -1,6 +1,6 @@
 import "./Typography.scss";
 
-const Typography = ({ variant = "p1", as, className = "", children }) => {
+const Typography = ({ variant = "p1", as, className = "", children, ...props }) => {
     const typographyVariant = {
         h1: "h1",
         h2: "h2",
@@ -17,7 +17,7 @@ const Typography = ({ variant = "p1", as, className = "", children }) => {
     const combinedClassName = `${baseClass} ${variantClass}${className ? " " + className : ""
         }`.trim();
 
-    return <Tag className={combinedClassName}>{children}</Tag>;
+    return <Tag className={combinedClassName} {...props}>{children}</Tag>;
 };
 
 export default Typography;

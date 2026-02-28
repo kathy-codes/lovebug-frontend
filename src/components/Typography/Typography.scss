@@ -4,32 +4,32 @@
 
 .typography {
     &--h1 {
-        font-size: pxToRem(28);
-        line-height: pxToRem(36);
+        font-size: pxToRem(64);
+        line-height: pxToRem(72);
 
         @include tablet {
-            font-size: pxToRem(32);
-            line-height: pxToRem(40);
+            font-size: pxToRem(72);
+            line-height: pxToRem(80);
         }
     }
 
     &--h2 {
-        font-size: pxToRem(20);
-        line-height: pxToRem(28);
+        font-size: pxToRem(48);
+        line-height: pxToRem(56);
 
         @include tablet {
-            font-size: pxToRem(24);
-            line-height: pxToRem(32);
+            font-size: pxToRem(56);
+            line-height: pxToRem(64);
         }
     }
 
     &--h3 {
-        font-size: pxToRem(13);
-        line-height: pxToRem(20);
+        font-size: pxToRem(24);
+        line-height: pxToRem(28);
 
         @include tablet {
-            font-size: pxToRem(14);
-            line-height: pxToRem(22);
+            font-size: pxToRem(28);
+            line-height: pxToRem(36);
         }
     }
 
@@ -44,32 +44,32 @@
     }
 
     &--p1 {
-        font-size: pxToRem(15);
-        line-height: pxToRem(26);
+        font-size: pxToRem(16);
+        line-height: pxToRem(24);
 
         @include tablet {
-            font-size: pxToRem(16);
+            font-size: pxToRem(18);
             line-height: pxToRem(28);
         }
     }
 
     &--p2 {
-        font-size: pxToRem(13);
-        line-height: pxToRem(20);
+        font-size: pxToRem(14);
+        line-height: pxToRem(22);
 
         @include tablet {
-            font-size: pxToRem(14);
-            line-height: pxToRem(22);
+            font-size: pxToRem(16);
+            line-height: pxToRem(24);
         }
     }
 
     &--p3 {
-        font-size: pxToRem(11);
-        line-height: pxToRem(16);
+        font-size: pxToRem(12);
+        line-height: pxToRem(18);
 
         @include tablet {
-            font-size: pxToRem(12);
-            line-height: pxToRem(18);
+            font-size: pxToRem(14);
+            line-height: pxToRem(22);
         }
     }
 }

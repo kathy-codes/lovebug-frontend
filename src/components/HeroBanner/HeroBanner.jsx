@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import holdingHands from '../../assets/images/holdinghands.png';
+import Typography from '../Typography/Typography';
 import './HeroBanner.scss';
 
 const HeroBanner = () => {
     return (
         <section className="hero-banner">
             <div className="hero-banner__content">
-                <h1 className="hero-banner__title">
+                <Typography variant="h1" className="hero-banner__title">
                     <span className="hero-banner__title-secondary">Find Your Perfect Match</span>
-                </h1>
+                </Typography>
 
-                <p className="hero-banner__subtitle">
+                <Typography variant="p1" className="hero-banner__subtitle">
                     Discover meaningful connections through personality-driven compatibility.
                     LoveBug goes beyond the swipe—we help you find trustworthy matches based on what truly matters.
-                </p>
+                </Typography>
 
                 <div className="hero-banner__actions">
                     <Link to="/quizmanager" className="btn btn--primary btn--large">Get Started Free</Link>
