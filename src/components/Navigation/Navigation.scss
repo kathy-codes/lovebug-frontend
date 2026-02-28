@@ -12,10 +12,6 @@
         top: 0;
         z-index: 100;
         border-bottom: 1px solid rgba($color-tertiary-paleshell, 0.3);
-
-        @media (min-width: $max-width-md) {
-            padding: 1rem 10%;
-        }
     }
 
     &__logo-link {
