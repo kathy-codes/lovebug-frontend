@@ -16,6 +16,7 @@ import Openness from "../../components/quizquestions/Openness/Openness.jsx";
 import Spontaneity from "../../components/quizquestions/Spontaneity/Spontaneity.jsx";
 import Chronotype from "../../components/quizquestions/Chronotype/Chronotype.jsx";
 import EmotionalExpressiveness from "../../components/quizquestions/EmotionalExpressiveness/EmotionalExpressiveness.jsx";
+import logoIcon from "../../assets/logo/lovebug.svg";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
@@ -130,6 +131,10 @@ const QuizManager = ({ responses, setResponses }) => {
     return (
         <div className="quiz-manager">
             <div className="quiz-progress-header">
+                <div className="quiz-logo-container">
+                    <img src={logoIcon} alt="LoveBug logo" className="quiz-logo" />
+                    <span className="quiz-logo-text">LoveBug</span>
+                </div>
                 <div className="quiz-step-tracker">
                     {step} / {totalSteps}
                 </div>
