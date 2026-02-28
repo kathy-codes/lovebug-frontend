@@ -3,6 +3,7 @@ import xIcon from '../../assets/icons/x.svg';
 import instagramIcon from '../../assets/icons/instagram.svg';
 import facebookIcon from '../../assets/icons/facebook.svg';
 import tiktokIcon from '../../assets/icons/tiktok.svg';
+import logo from '../../assets/logo/lovebug.svg';
 import Typography from '../Typography/Typography';
 import './Footer.scss';
 
@@ -12,7 +13,7 @@ const Footer = () => {
             <div className="footer__container">
                 <div className="footer__brand">
                     <div className="footer__logo">
-                        LoveBug <span role="img" aria-label="bug">🐞</span>
+                        <img src={logo} alt="LoveBug Logo" className="footer__logo-img" />LoveBug
                     </div>
                     <Typography variant="p2" className="footer__tagline">
                         Finding meaningful connections through personality-driven compatibility.

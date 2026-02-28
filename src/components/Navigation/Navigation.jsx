@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo/lovebug.svg';
 import './Navigation.scss';
 
 const Navigation = () => {
@@ -13,7 +14,7 @@ const Navigation = () => {
         <header className="landing-page__header">
             <Link to="/" className="landing-page__logo-link">
                 <div className="landing-page__logo">
-                    Lovebug <span role="img" aria-label="bug">🐞</span>
+                    <img src={logo} alt="LoveBug Logo" className="landing-page__logo-img" />LoveBug
                 </div>
             </Link>
 
