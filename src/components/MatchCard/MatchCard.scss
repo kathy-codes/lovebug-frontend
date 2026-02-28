@@ -4,13 +4,20 @@
 .match-card {
     position: relative;
     background-color: $color-primary-white;
-    border-radius: 16px;
+    border-radius: 28px;
     padding: 2.5rem 1.5rem 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     border: 1px solid rgba($color-primary-black, 0.1);
     display: flex;
     flex-direction: column;
-    margin-top: 1rem; // Give space for the overlapping badge
+    margin-top: 1rem;
+
+    &:hover {
+        border-radius: 28px;
+        border: 1px solid #000;
+        background: var(--Color, #FFF);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
 
     &__longevity-badge {
         position: absolute;
@@ -64,9 +71,9 @@
         justify-content: flex-end;
 
         .btn--message {
-            background-color: rgba($color-primary-black, 0.05);
-            color: $color-primary-black;
-            border: none;
+            background-color: $color-primary-white;
+            color: $color-primary-red;
+            border: 1px solid $color-primary-red;
             padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -76,7 +83,7 @@
             gap: 0.5rem;
 
             &:hover {
-                background-color: rgba($color-primary-black, 0.1);
+                background-color: rgba($color-primary-red, 0.1);
             }
         }
     }

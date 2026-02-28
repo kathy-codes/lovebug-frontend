@@ -9,8 +9,8 @@ const MatchCard = ({ match }) => {
                 {match.longevityMonths} months longevity
             </div>
 
-            <Typography variant="h4" className="match-card__name">{match.name}</Typography>
-            <Typography variant="p3" className="match-card__tagline">{match.archetypeTagline}</Typography>
+            <Typography variant="h3" className="match-card__name">{match.name}</Typography>
+            <Typography variant="p2" className="match-card__tagline">{match.archetypeTagline}</Typography>
 
             <Typography variant="p3" className="match-card__description">
                 {match.whyFits}

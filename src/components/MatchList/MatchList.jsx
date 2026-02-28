@@ -13,7 +13,7 @@ const MatchList = ({ matches }) => {
                 ))}
             </div>
             <div className="match-list__actions">
-                <button className="btn btn--primary btn--large match-list__continue-btn">Continue</button>
+                <button className="btn btn--primary btn--large match-list__continue-btn">More</button>
             </div>
         </section>
     );
