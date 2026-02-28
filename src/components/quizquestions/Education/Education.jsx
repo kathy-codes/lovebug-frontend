@@ -2,7 +2,7 @@ import "./Education.scss";
 
 const Education = ({ education, setEducation }) => {
     const educationOptions = {
-        "High School": 1,
+        "Highschool": 1,
         "Associate's": 2,
         "Bachelor's": 3,
         "Master's": 4,
@@ -11,21 +11,17 @@ const Education = ({ education, setEducation }) => {
     
     return (
         <div className="education-container">
-            <h2>What is your education?</h2>
+            <h2>What is your highest level of education?</h2>
             <div className="education-options-list">
                 {Object.keys(educationOptions).map((key) => (
-                    <div key={key}>
-                        <label>
-                            <input 
-                                type="radio" 
-                                name="education" 
-                                value={educationOptions[key]}
-                                checked={education === educationOptions[key]}
-                                onChange={() => setEducation(educationOptions[key])}
-                            />
-                            {key}
-                        </label>
-                    </div>
+                    <button 
+                        key={key}
+                        type="button"
+                        className={`education-button ${education === educationOptions[key] ? 'selected' : ''}`}
+                        onClick={() => setEducation(educationOptions[key])}
+                    >
+                        {key}
+                    </button>
                 ))}
             </div>
         </div>
