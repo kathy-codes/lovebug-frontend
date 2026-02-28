@@ -55,7 +55,7 @@ const Location = ({ location, setLocation }) => {
                             <option value="" disabled>Select a city</option>
                             {locations.map((loc) => (
                                 <option key={loc.city} value={loc.city}>
-                                    {loc.city}, {loc.country}
+                                    {loc.city}
                                 </option>
                             ))}
                         </select>
