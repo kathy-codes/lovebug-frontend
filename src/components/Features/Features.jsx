@@ -1,4 +1,5 @@
 import React from 'react';
+import Typography from '../Typography/Typography';
 import './Features.scss';
 
 const FEATURES = [
@@ -22,15 +23,15 @@ const FEATURES = [
 const Features = () => {
     return (
         <section id="how-it-works" className="features">
-            <h2 className="features__title">How LoveBug Works</h2>
-            <p className="features__subtitle">A thoughtful approach to finding your perfect match</p>
+            <Typography variant="h2" className="features__title">How LoveBug Works</Typography>
+            <Typography variant="p1" className="features__subtitle">A thoughtful approach to finding your perfect match</Typography>
 
             <div className="features__grid">
                 {FEATURES.map((feature, index) => (
                     <div key={index} className="feature-card">
                         <div className="feature-card__number">{feature.number}</div>
-                        <h3 className="feature-card__title">{feature.title}</h3>
-                        <p className="feature-card__description">{feature.description}</p>
+                        <Typography variant="h3" className="feature-card__title">{feature.title}</Typography>
+                        <Typography variant="p2" className="feature-card__description">{feature.description}</Typography>
                     </div>
                 ))}
             </div>
