@@ -31,7 +31,6 @@ const Navigation = () => {
             <nav className={`landing-page__nav ${isMenuOpen ? 'open' : ''}`}>
                 <a href="#how-it-works" className="landing-page__nav-link" onClick={() => setIsMenuOpen(false)}>How it Works</a>
                 <a href="#compatibility" className="landing-page__nav-link" onClick={() => setIsMenuOpen(false)}>Compatibility</a>
-                <a href="#about" className="landing-page__nav-link" onClick={() => setIsMenuOpen(false)}>About</a>
                 <Link to="/quizmanager" className="btn btn--primary" style={{ padding: '0.5rem 1.5rem', borderRadius: '50px' }} onClick={() => setIsMenuOpen(false)}>Get Started</Link>
             </nav>
         </header>

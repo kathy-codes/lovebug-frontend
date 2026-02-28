@@ -1,10 +1,15 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .features {
-    padding: 6rem 5%;
+    padding: 2rem 5%;
     max-width: $max-width-lg;
     margin: 0 auto;
     text-align: center;
+
+    @include tablet {
+        padding: 6rem 5%;
+    }
 
     &__title {
         font-size: 2.5rem;
@@ -48,12 +53,18 @@
 .feature-card {
     background-color: $color-tertiary-paleshell;
     border-radius: 16px;
-    padding: 2.5rem 2rem;
+    padding: 1rem 1.5rem;
     text-align: left;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    // height: 100%;
+    gap: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @include tablet {
+        height: 100%;
+        padding: 1.5rem 2rem;
+    }
 
     &:hover {
         transform: translateY(-5px);
