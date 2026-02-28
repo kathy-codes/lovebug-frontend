@@ -19,7 +19,7 @@ const IceBreakers = () => {
             <div className="ice-breakers__grid">
                 {ICE_BREAKERS.map((question, index) => (
                     <div key={index} className="ice-breaker-card">
-                        <Typography variant="p3" className="ice-breaker-text">{question}</Typography>
+                        <Typography variant="p2" className="ice-breaker-text">{question}</Typography>
                     </div>
                 ))}
             </div>

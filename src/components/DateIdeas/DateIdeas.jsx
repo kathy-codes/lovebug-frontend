@@ -18,19 +18,20 @@ const DateIdeas = () => {
 
             <div className="date-ideas__header">
                 <Typography variant="p2" className="date-ideas__subtitle">You feel most alive and energized when you are in</Typography>
+                {/* Needs to be updated to pull the data based how the user answered one fo their question */}
                 <span className="midday-pill">☼ Midday mode</span>
             </div>
 
-            <Typography variant="h4" className="date-ideas__prompt">Here are date ideas that match this:</Typography>
+            <Typography variant="h3" className="date-ideas__prompt">Here are date ideas that match this:</Typography>
 
             <div className="date-ideas__grid">
                 {DATE_IDEAS.map((idea, index) => (
                     <div key={index} className="date-card">
                         <img src={idea.image} alt={idea.title} className="date-card__image" />
                         <div className="date-card__content">
-                            <Typography variant="h4" className="date-card__title">{idea.title}</Typography>
-                            <Typography variant="p3" className="date-card__distance">{idea.distance}</Typography>
-                            <Typography variant="p3" className="date-card__description">{idea.description}</Typography>
+                            <Typography variant="h3" className="date-card__title">{idea.title}</Typography>
+                            <Typography variant="p2" className="date-card__distance">{idea.distance}</Typography>
+                            <Typography variant="p2" className="date-card__description">{idea.description}</Typography>
                         </div>
                     </div>
                 ))}

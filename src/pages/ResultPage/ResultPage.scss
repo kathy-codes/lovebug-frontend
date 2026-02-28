@@ -30,8 +30,9 @@
         }
 
         .safety-text {
+            font-family: $font-family-secondary;
             color: $color-primary-black;
-            font-weight: 800;
+            font-weight: 600;
         }
 
         .safety-icon {
