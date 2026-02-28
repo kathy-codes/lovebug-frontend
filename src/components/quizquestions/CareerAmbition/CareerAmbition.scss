@@ -1,3 +1,58 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/functions" as *;
 @use "../../../styles/mixins" as *;
+
+.career-ambition-container {
+    text-align: center;
+    width: 100%;
+}
+
+.career-ambition-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.career-ambition-button {
+    width: 100%;
+    max-width: 220px;
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $color-primary-black;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: center;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    &.selected {
+        background-color: $color-primary-black;
+        color: $color-primary-white;
+        border-color: $color-primary-black;
+        
+        .career-ambition-icon {
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    .career-ambition-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+    
+    span {
+        text-align: center;
+        width: 100%;
+    }
+}
