@@ -7,6 +7,7 @@ import ResultPage from "./pages/ResultPage/ResultPage.jsx"
 function App() {
   const [responses, setResponses] = useState({
     age: "",
+    gender: "",
     education: "",
     location: "",
     career_field: "",

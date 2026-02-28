@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
 import Age from "../../components/quizquestions/Age/Age.jsx";
 import Education from "../../components/quizquestions/Education/Education.jsx";
+import Gender from "../../components/quizquestions/Gender/Gender.jsx";
 import Location from "../../components/quizquestions/Location/Location.jsx";
 import CareerField from "../../components/quizquestions/CareerField/CareerField.jsx";
 import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
@@ -17,9 +18,9 @@ import EmotionalExpressiveness from "../../components/quizquestions/EmotionalExp
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
-    // We have 13 steps. Let's use 1-based indexing for the UI.
+    // We have 15 steps. Let's use 1-based indexing for the UI.
     const [step, setStep] = useState(1);
-    const totalSteps = 13;
+    const totalSteps = 15;
     
     const handleNext = () => {
         if (step < totalSteps) {
@@ -53,56 +54,61 @@ const QuizManager = ({ responses, setResponses }) => {
                     setLocation={(newLocation) => setResponses({ ...responses, location: newLocation })}
                 />
             case 3:
+                return <Gender
+                    gender={responses?.gender}
+                    setGender={(newGender) => setResponses({ ...responses, gender: newGender })}
+                />
+            case 4:
                 return <Education
                     education={responses?.education}
                     setEducation={(newEducation) => setResponses({ ...responses, education: newEducation })}
                 />
-            case 4:
+            case 5:
                 return <CareerField
                     careerField={responses?.career_field}
                     setCareerField={(newCareerField) => setResponses({ ...responses, career_field: newCareerField })}
                 />
-            case 5:
+            case 6:
                 return <CareerAmbition
                     careerAmbition={responses?.career_ambition}
                     setCareerAmbition={(newCareerAmbition) => setResponses({ ...responses, career_ambition: newCareerAmbition })}
                 />
-            case 6:
+            case 7:
                 return <Extraversion
                     extraversion={responses?.extraversion}
                     setExtraversion={(newExtraversion) => setResponses({ ...responses, extraversion: newExtraversion })}
                 />
-            case 7:
+            case 8:
                 return <Conscientiousness
                     conscientiousness={responses?.conscientiousness}
                     setConscientiousness={(newConscientiousness) => setResponses({ ...responses, conscientiousness: newConscientiousness })}
                 />
-            case 8:
+            case 9:
                 return <LoveLanguage
                     loveLanguage={responses?.love_language}
                     setLoveLanguage={(newLoveLanguage) => setResponses({ ...responses, love_language: newLoveLanguage })}
                 />
-            case 9:
+            case 10:
                 return <Agreeableness
                     agreeableness={responses?.agreeableness}
                     setAgreeableness={(newAgreeableness) => setResponses({ ...responses, agreeableness: newAgreeableness })}
                 />
-            case 10:
+            case 11:
                 return <Openness
                     openness={responses?.openness}
                     setOpenness={(newOpenness) => setResponses({ ...responses, openness: newOpenness })}
                 />
-            case 11:
+            case 12:
                 return <Spontaneity
                     spontaneity={responses?.spontaneity}
                     setSpontaneity={(newSpontaneity) => setResponses({ ...responses, spontaneity: newSpontaneity })}
                 />
-            case 12:
+            case 13:
                 return <Chronotype
                     chronotype={responses?.chronotype}
                     setChronotype={(newChronotype) => setResponses({ ...responses, chronotype: newChronotype })}
                 />
-            case 13:
+            case 14:
                 return <EmotionalExpressiveness
                     emotionalExpressiveness={responses?.emotional_expressiveness}
                     setEmotionalExpressiveness={(newExpressiveness) => setResponses({ ...responses, emotional_expressiveness: newExpressiveness })}
