@@ -153,15 +153,15 @@ const QuizManager = ({ responses, setResponses }) => {
 
             <div className="quiz-controls">
                 {step > 1 ? (
-                    <Button onClick={handlePrev}>Back</Button>
+                    <Button onClick={handlePrev} variant="quiz-secondary">Back</Button>
                 ) : (
-                    <Button isLink to="/" variant="secondary">Cancel</Button>
+                    <Button isLink to="/" variant="quiz-secondary">Cancel</Button>
                 )}
                 
                 {step < totalSteps ? (
-                    <Button onClick={handleNext}>Forward</Button>
+                    <Button onClick={handleNext} variant="quiz-primary">Continue</Button>
                 ) : (
-                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button onClick={handleSubmit} variant="quiz-primary">Submit</Button>
                 )}
             </div>
         </div>
