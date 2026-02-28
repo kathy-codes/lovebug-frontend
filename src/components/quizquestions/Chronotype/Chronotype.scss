@@ -1,3 +1,102 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/functions" as *;
 @use "../../../styles/mixins" as *;
+
+.chronotype-container {
+    text-align: center;
+    width: 100%;
+}
+
+.chronotype-grid {
+    display: grid;
+    grid-template-columns: 140px 140px;
+    grid-template-rows: 140px 140px;
+    gap: 4px; // small gap as seen in design
+    margin-top: 40px;
+    justify-content: center;
+
+    // When the grid contains a selected item, fade the unselected ones
+    &.has-selection .chronotype-button:not(.selected) {
+        opacity: 0.4;
+    }
+}
+
+.chronotype-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 20px;
+
+    // General hover effect
+    &:hover {
+        opacity: 0.8;
+    }
+    
+    // Scale up slightly when selected
+    &.selected {
+        transform: scale(1.02);
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .chronotype-icon {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    span {
+        font-size: 0.85rem;
+        font-weight: 500;
+        word-wrap: break-word;
+        max-width: 100%;
+        line-height: 1.2;
+    }
+
+    // Specific colors and border radii
+    &.top-left {
+        border-radius: 140px 0 0 0;
+        padding-top: 40px;
+        padding-left: 20px;
+        background-color: $color-primary-red;
+        color: $color-primary-white;
+        
+        .chronotype-icon {
+            filter: brightness(0) invert(1);
+        }
+    }
+    
+    &.top-right {
+        border-radius: 0 140px 0 0;
+        padding-top: 40px;
+        padding-right: 20px;
+        background-color: $color-accent-yellow;
+        color: $color-primary-black;
+    }
+    
+    &.bottom-left {
+        border-radius: 0 0 0 140px;
+        padding-bottom: 40px;
+        padding-left: 20px;
+        background-color: $color-secondary-navy;
+        color: $color-primary-white;
+        
+        .chronotype-icon {
+            filter: brightness(0) invert(1);
+        }
+    }
+    
+    &.bottom-right {
+        border-radius: 0 0 140px 0;
+        padding-bottom: 40px;
+        padding-right: 20px;
+        background-color: $color-tertiary-paleshell;
+        color: $color-primary-black;
+    }
+}

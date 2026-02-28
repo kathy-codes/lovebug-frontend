@@ -1,31 +1,39 @@
+import { useEffect } from "react";
 import "./EmotionalExpressiveness.scss";
 
 const EmotionalExpressiveness = ({ emotionalExpressiveness, setEmotionalExpressiveness }) => {
-    // If emotionalExpressiveness is undefined/null, let's default the slider to 50 for the UI
-    const displayValue = emotionalExpressiveness !== undefined && emotionalExpressiveness !== null 
-        ? Math.round(emotionalExpressiveness * 100) 
-        : 50;
+    
+    useEffect(() => {
+        // Default to 0.50 if not set, taking care of empty string from uninitialized form state
+        if (emotionalExpressiveness === undefined || emotionalExpressiveness === null || emotionalExpressiveness === "") {
+            setEmotionalExpressiveness(0.50);
+        }
+    }, [emotionalExpressiveness, setEmotionalExpressiveness]);
 
-    const handleChange = (e) => {
-        const val = parseInt(e.target.value, 10);
-        setEmotionalExpressiveness(val / 100);
-    };
+    const currentValue = (emotionalExpressiveness !== undefined && emotionalExpressiveness !== null && emotionalExpressiveness !== "") 
+        ? Number(emotionalExpressiveness) 
+        : 0.50;
 
     return (
         <div className="emotional-expressiveness-container">
-            <h2>When it comes to feelings, you’re expressiveness level from 0 to 100 (being the most expressive) is…</h2>
-            <div className="slider-wrapper">
+            <h2>When it comes to feelings, you...</h2>
+            
+            <div className="expressiveness-slider-wrapper">
+                <div className="slider-labels">
+                    <span className="label-left">I show it all</span>
+                    <span className="label-right">I keep it inside</span>
+                </div>
+                
                 <input 
                     type="range" 
+                    className="expressiveness-slider" 
                     min="0" 
-                    max="100" 
-                    value={displayValue} 
-                    onChange={handleChange}
-                    className="expressiveness-slider"
+                    max="1" 
+                    step="0.01"
+                    value={currentValue}
+                    onChange={(e) => setEmotionalExpressiveness(Number(e.target.value))}
+                    style={{ '--val': `${currentValue * 100}%` }}
                 />
-                <div className="slider-value-display">
-                    {displayValue}
-                </div>
             </div>
         </div>
     );

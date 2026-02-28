@@ -1,39 +1,45 @@
+import { useEffect } from "react";
 import "./Extraversion.scss";
 
 const Extraversion = ({ extraversion, setExtraversion }) => {
     const extraversions = [
-        "Introvert (quiet, observant, calm)",
-        "Ambivert (depends on the mood)",
-        "Extrovert (life of the party)"
-    ]
-    // We calculate the value. The last one is 1. The first one is not 0.
-    // So with N items, the i-th item (0-indexed) has value = (i + 1) / N.
-    // Example with 3 items: 1/3, 2/3, 3/3 (1).
-    const calculateValue = (index) => {
-        return (index + 1) / extraversions.length;
-    };
-    
+        "Quiet and observant",
+        "Depends on my mood",
+        "Life of the party"
+    ];
+
+    useEffect(() => {
+        // Default to 0.50 if not set, taking care of empty string from uninitialized form state
+        if (extraversion === undefined || extraversion === null || extraversion === "") {
+            setExtraversion(0.50);
+        }
+    }, [extraversion, setExtraversion]);
+
+    const currentValue = (extraversion !== undefined && extraversion !== null && extraversion !== "") 
+        ? Number(extraversion) 
+        : 0.50;
+
     return (
         <div className="extraversion-container">
             <h2>In social settings, your energy is usually…</h2>
-            <div className="extraversion-options-list">
-                {extraversions.map((extraversionItem, index) => {
-                    const value = calculateValue(index);
-                    return (
-                        <div key={extraversionItem}>
-                            <label>
-                                <input 
-                                    type="radio" 
-                                    name="extraversion" 
-                                    value={value}
-                                    checked={extraversion === value}
-                                    onChange={() => setExtraversion(value)}
-                                />
-                                {extraversionItem}
-                            </label>
-                        </div>
-                    );
-                })}
+            
+            <div className="extraversion-slider-wrapper">
+                <div className="slider-labels">
+                    <span className="label-left">{extraversions[0]}</span>
+                    <span className="label-center">{extraversions[1]}</span>
+                    <span className="label-right">{extraversions[2]}</span>
+                </div>
+                
+                <input 
+                    type="range" 
+                    className="extraversion-slider" 
+                    min="0" 
+                    max="1" 
+                    step="0.01"
+                    value={currentValue}
+                    onChange={(e) => setExtraversion(Number(e.target.value))}
+                    style={{ '--val': `${currentValue * 100}%` }}
+                />
             </div>
         </div>
     );

@@ -1,3 +1,56 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/functions" as *;
 @use "../../../styles/mixins" as *;
+
+.career-field-container {
+    text-align: center;
+    width: 100%;
+}
+
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.career-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    padding: 24px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    &.selected {
+        border-color: $color-primary-black;
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .career-icon {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+    }
+
+    span {
+        font-size: 0.9rem;
+        color: $color-primary-black;
+        font-weight: 400;
+        word-wrap: break-word;
+        max-width: 100%;
+        line-height: 1.2;
+    }
+}

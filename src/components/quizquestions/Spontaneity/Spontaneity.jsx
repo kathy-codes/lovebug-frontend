@@ -1,16 +1,17 @@
+import clockFastIcon from "../../../assets/icons/clockFast.svg";
+import alignMiddleIcon from "../../../assets/icons/alignMiddle.svg";
+import calendarIcon from "../../../assets/icons/calendar.svg";
 import "./Spontaneity.scss";
 
 const Spontaneity = ({ spontaneity, setSpontaneity }) => {
     const spontaneities = [
-        "Say less, I’m in",
-        "Usually sounds fun",
-        "Depends on the day",
-        "Prefer a little notice",
-        "Please plan ahead"
-    ]
+        { label: "I’m in", icon: clockFastIcon },
+        { label: "Depends", icon: alignMiddleIcon },
+        { label: "I'd rather plan ahead", icon: calendarIcon }
+    ];
     // We calculate the value. The first one is 1. The last one is not 0.
     // So with N items, the i-th item (0-indexed) has value = (N - i) / N.
-    // Example with 5 items: 5/5 (1), 4/5, 3/5, 2/5, 1/5.
+    // Example with 3 items: 3/3 (1), 2/3, 1/3.
     const calculateValue = (index) => {
         return (spontaneities.length - index) / spontaneities.length;
     };
@@ -22,18 +23,15 @@ const Spontaneity = ({ spontaneity, setSpontaneity }) => {
                 {spontaneities.map((item, index) => {
                     const value = calculateValue(index);
                     return (
-                        <div key={item}>
-                            <label>
-                                <input 
-                                    type="radio" 
-                                    name="spontaneity" 
-                                    value={value}
-                                    checked={spontaneity === value}
-                                    onChange={() => setSpontaneity(value)}
-                                />
-                                {item}
-                            </label>
-                        </div>
+                        <button 
+                            key={item.label}
+                            type="button"
+                            className={`spontaneity-button ${spontaneity === value ? 'selected' : ''}`}
+                            onClick={() => setSpontaneity(value)}
+                        >
+                            <img src={item.icon} alt={item.label} className="spontaneity-icon" />
+                            <span>{item.label}</span>
+                        </button>
                     );
                 })}
             </div>
