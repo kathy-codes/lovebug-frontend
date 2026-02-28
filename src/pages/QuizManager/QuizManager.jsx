@@ -5,6 +5,7 @@ import Age from "../../components/quizquestions/Age/Age.jsx";
 import Education from "../../components/quizquestions/Education/Education.jsx";
 import Gender from "../../components/quizquestions/Gender/Gender.jsx";
 import Location from "../../components/quizquestions/Location/Location.jsx";
+import SexualOrientation from "../../components/quizquestions/SexualOrientation/SexualOrientation.jsx";
 import CareerField from "../../components/quizquestions/CareerField/CareerField.jsx";
 import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
 import Extraversion from "../../components/quizquestions/Extraversion/Extraversion.jsx";
@@ -59,56 +60,61 @@ const QuizManager = ({ responses, setResponses }) => {
                     setGender={(newGender) => setResponses({ ...responses, gender: newGender })}
                 />
             case 4:
+                return <SexualOrientation
+                    sexual_orientation={responses?.sexual_orientation}
+                    setSexualOrientation={(newOrientation) => setResponses({ ...responses, sexual_orientation: newOrientation })}
+                />
+            case 5:
                 return <Education
                     education={responses?.education}
                     setEducation={(newEducation) => setResponses({ ...responses, education: newEducation })}
                 />
-            case 5:
+            case 6:
                 return <CareerField
                     careerField={responses?.career_field}
                     setCareerField={(newCareerField) => setResponses({ ...responses, career_field: newCareerField })}
                 />
-            case 6:
+            case 7:
                 return <CareerAmbition
                     careerAmbition={responses?.career_ambition}
                     setCareerAmbition={(newCareerAmbition) => setResponses({ ...responses, career_ambition: newCareerAmbition })}
                 />
-            case 7:
+            case 8:
                 return <Extraversion
                     extraversion={responses?.extraversion}
                     setExtraversion={(newExtraversion) => setResponses({ ...responses, extraversion: newExtraversion })}
                 />
-            case 8:
+            case 9:
                 return <Conscientiousness
                     conscientiousness={responses?.conscientiousness}
                     setConscientiousness={(newConscientiousness) => setResponses({ ...responses, conscientiousness: newConscientiousness })}
                 />
-            case 9:
+            case 10:
                 return <LoveLanguage
                     loveLanguage={responses?.love_language}
                     setLoveLanguage={(newLoveLanguage) => setResponses({ ...responses, love_language: newLoveLanguage })}
                 />
-            case 10:
+            case 11:
                 return <Agreeableness
                     agreeableness={responses?.agreeableness}
                     setAgreeableness={(newAgreeableness) => setResponses({ ...responses, agreeableness: newAgreeableness })}
                 />
-            case 11:
+            case 12:
                 return <Openness
                     openness={responses?.openness}
                     setOpenness={(newOpenness) => setResponses({ ...responses, openness: newOpenness })}
                 />
-            case 12:
+            case 13:
                 return <Spontaneity
                     spontaneity={responses?.spontaneity}
                     setSpontaneity={(newSpontaneity) => setResponses({ ...responses, spontaneity: newSpontaneity })}
                 />
-            case 13:
+            case 14:
                 return <Chronotype
                     chronotype={responses?.chronotype}
                     setChronotype={(newChronotype) => setResponses({ ...responses, chronotype: newChronotype })}
                 />
-            case 14:
+            case 15:
                 return <EmotionalExpressiveness
                     emotionalExpressiveness={responses?.emotional_expressiveness}
                     setEmotionalExpressiveness={(newExpressiveness) => setResponses({ ...responses, emotional_expressiveness: newExpressiveness })}
