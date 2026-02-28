@@ -7,6 +7,8 @@ const SexualOrientation = ({ sexual_orientation, setSexualOrientation, gender })
         sexual_orientations = sexual_orientations.filter(so => so !== 'Lesbian');
     } else if (gender === 'Female') {
         sexual_orientations = sexual_orientations.filter(so => so !== 'Gay');
+    } else if (gender === 'Other' || gender === 'Nonbinary') {
+        sexual_orientations = sexual_orientations.filter(so => so !== 'Lesbian' && so !== 'Gay');
     }
     return (
         <div className="sexual-orientation-container">
