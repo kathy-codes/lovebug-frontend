@@ -13,7 +13,7 @@ const Navigation = () => {
         <header className="landing-page__header">
             <Link to="/" className="landing-page__logo-link">
                 <div className="landing-page__logo">
-                    Lovebug <span role="img" aria-label="bug">🐞</span>
+                    LoveBug <span role="img" aria-label="bug">🐞</span>
                 </div>
             </Link>
 
