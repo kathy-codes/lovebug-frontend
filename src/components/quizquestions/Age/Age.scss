@@ -87,3 +87,40 @@
         cursor: default;
     }
 }
+
+.age-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+}
+
+.left-arrow {
+    left: 10px;
+    &::after {
+        border-width: 8px 12px 8px 0;
+        border-color: transparent $color-primary-black transparent transparent;
+    }
+}
+
+.right-arrow {
+    right: 10px;
+    &::after {
+        border-width: 8px 0 8px 12px;
+        border-color: transparent transparent transparent $color-primary-black;
+    }
+}

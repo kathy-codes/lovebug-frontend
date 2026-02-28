@@ -31,13 +31,45 @@ const Age = ({ age, setAge }) => {
         }
     };
 
+    const handleDecrement = () => {
+        const newAge = Number(currentAge) - 1;
+        if (newAge >= 18) {
+            setAge(newAge);
+            if (scrollRef.current) {
+                scrollRef.current.scrollTop = ageOptions.indexOf(newAge) * itemHeight;
+            }
+        }
+    };
+
+    const handleIncrement = () => {
+        const newAge = Number(currentAge) + 1;
+        if (newAge <= 99) {
+            setAge(newAge);
+            if (scrollRef.current) {
+                scrollRef.current.scrollTop = ageOptions.indexOf(newAge) * itemHeight;
+            }
+        }
+    };
+
     return (
         <div className="age-container">
             <h2>What is your age?</h2>
             
             <div className="age-scroller-wrapper">
+                <button 
+                    className="age-arrow left-arrow" 
+                    onClick={handleDecrement}
+                    aria-label="Decrease age"
+                ></button>
+                
                 <div className="selection-highlight"></div>
                 
+                <button 
+                    className="age-arrow right-arrow" 
+                    onClick={handleIncrement}
+                    aria-label="Increase age"
+                ></button>
+
                 <div 
                     className="age-scroller" 
                     ref={scrollRef}
