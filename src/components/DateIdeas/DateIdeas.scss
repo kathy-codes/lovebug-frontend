@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.date-ideas {
+    padding: 1rem 5%;
+    max-width: $max-width-lg;
+    margin: 0 auto;
+
+    &__title {
+        color: $color-primary-black;
+        margin-bottom: 0;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &__subtitle {
+        color: rgba($color-primary-black, 0.8);
+    }
+
+    .midday-pill {
+        background-color: transparent;
+        border: 1px solid rgba($color-primary-black, 0.2);
+        padding: 0.25rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $color-primary-black;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__prompt {
+        font-weight: 800;
+        color: $color-primary-black;
+        margin-bottom: 2rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include tablet {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+    }
+
+    .date-card {
+        background-color: $color-primary-white;
+        border-radius: 28px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba($color-primary-black, 0.1);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+
+        &:hover {
+            border-radius: 28px;
+            border: 1px solid #000;
+            background: var(--Color, #FFF);
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        &__image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 28px;
+        }
+
+        &__title {
+            font-weight: 800;
+            color: $color-primary-black;
+            margin-bottom: 0;
+        }
+
+        &__distance {
+            color: rgba($color-primary-black, 0.5);
+        }
+
+        &__description {
+            color: rgba($color-primary-black, 0.8);
+        }
+    }
+}

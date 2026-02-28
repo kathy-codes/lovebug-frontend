@@ -1,234 +1,90 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .match-card {
+    position: relative;
     background-color: $color-primary-white;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(19, 24, 44, 0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    border: 1px solid rgba($color-tertiary-paleshell, 0.3);
+    border-radius: 28px;
+    padding: 2.5rem 1.5rem 1.5rem;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba($color-primary-black, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 50px rgba(19, 24, 44, 0.12);
-        border-color: rgba($color-tertiary-paleshell, 0.2);
+        border-radius: 28px;
+        border: 1px solid #000;
+        background: var(--Color, #FFF);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     }
 
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 2rem;
-        background: linear-gradient(to bottom, $color-primary-background, $color-primary-white);
-        border-bottom: 1px solid rgba($color-tertiary-paleshell, 0.2);
+    &__longevity-badge {
+        position: absolute;
+        top: -12px;
+        right: 1.5rem;
+        background-color: $color-tertiary-paleshell;
+        color: $color-secondary-navy;
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        border: 1px solid rgba($color-secondary-navy, 0.2);
+        z-index: 2;
     }
 
-    &__profile {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-
-        .profile-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid $color-primary-white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: $color-primary-black;
-            margin: 0 0 0.25rem 0;
-            letter-spacing: -0.5px;
-        }
-
-        .profile-tagline {
-            font-size: 1rem;
-            color: $color-primary-red;
-            font-weight: 600;
-            margin: 0;
-        }
+    &__name {
+        font-weight: 800;
+        color: $color-primary-black;
+        margin-bottom: 0.25rem;
     }
 
-    &__score {
+    &__tagline {
+        color: rgba($color-primary-black, 0.8);
+        margin-bottom: 1.5rem;
+    }
+
+    &__description {
+        color: rgba($color-primary-black, 0.9);
+        margin-bottom: 2rem;
+        flex-grow: 1;
+    }
+
+    &__tags {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: $color-primary-black;
-        color: $color-primary-white;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        box-shadow: 0 4px 15px rgba(19, 24, 44, 0.2);
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
 
-        .score-value {
-            font-size: 1.25rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .score-label {
+        .match-tag {
+            background-color: transparent;
+            border: 1px solid rgba($color-primary-black, 0.2);
+            color: rgba($color-primary-black, 0.6);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
             font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            opacity: 0.8;
-            margin-top: 2px;
         }
     }
 
-    &__body {
-        padding: 2rem;
-    }
+    &__action {
+        display: flex;
+        justify-content: flex-end;
 
-    &__section {
-        margin-bottom: 2rem;
-
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: $color-primary-black;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.25px;
-        }
-
-        .section-content {
-            color: $color-tertiary-paleshell;
-            line-height: 1.6;
-            margin: 0;
-        }
-    }
-
-    &__details {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid rgba($color-tertiary-paleshell, 0.3);
-
-        @media (min-width: 600px) {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .detail-icon {
-            font-size: 1.5rem;
-            background-color: $color-primary-background;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-        }
-
-        .detail-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .detail-label {
-            font-size: 0.875rem;
-            color: $color-tertiary-paleshell;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
-        }
-
-        .detail-value {
-            font-weight: 600;
-            color: $color-primary-black;
-        }
-    }
-
-    &__signals {
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: $color-primary-black;
-            margin-bottom: 1rem;
-            letter-spacing: -0.25px;
-        }
-
-        .signals-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .signal-badge {
-            background-color: rgba($color-accent-yellow, 0.1);
-            color: darken($color-accent-yellow, 10%);
+        .btn--message {
+            background-color: $color-primary-white;
+            color: $color-primary-red;
+            border: 1px solid $color-primary-red;
             padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            border: 1px solid rgba($color-accent-yellow, 0.2);
-        }
-    }
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
 
-    &__footer {
-        padding: 1.5rem 2rem;
-        background-color: $color-primary-background;
-        border-top: 1px solid rgba($color-tertiary-paleshell, 0.2);
-    }
-
-    .message-form {
-        display: flex;
-        gap: 1rem;
-
-        .message-input {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: 1px solid $color-tertiary-paleshell;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-
-            &:focus {
-                outline: none;
-                border-color: $color-primary-black;
-                box-shadow: 0 0 0 3px rgba($color-primary-black, 0.1);
+            &:hover {
+                background-color: rgba($color-primary-red, 0.1);
             }
         }
-
-        .message-btn {
-            padding: 0.75rem 1.5rem;
-
-            &:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-                transform: none;
-                box-shadow: none;
-            }
-        }
-    }
-
-    .message-success {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        color: $color-accent-yellow;
-        font-weight: 600;
-        padding: 0.75rem;
     }
 }

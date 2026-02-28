@@ -10,7 +10,7 @@ const HeroBanner = () => {
         <section className="hero-banner">
             <div className="hero-banner__content">
                 <Typography variant="h1" className="hero-banner__title">
-                    <span className="hero-banner__title-secondary">Find Your Perfect Match</span>
+                    Find Your Perfect Match
                 </Typography>
 
                 <Typography variant="p1" className="hero-banner__subtitle">

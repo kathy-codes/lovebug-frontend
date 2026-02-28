@@ -1,32 +1,50 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .match-list {
-    padding: 4rem 5%;
-    max-width: 1000px;
+    padding: 2rem 5%;
+    max-width: $max-width-lg;
     margin: 0 auto;
 
-    @media (min-width: $max-width-md) {
-        padding: 5rem 10%;
+    @include tablet {
+        padding: 4rem 5%;
     }
 
     &__title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 3rem;
         color: $color-primary-black;
-        letter-spacing: -0.5px;
-        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 800;
     }
 
     &__container {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        margin-bottom: 4rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+
+        @include tablet {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
     }
 
     &__actions {
         display: flex;
         justify-content: center;
+
+        .match-list__continue-btn {
+            background-color: $color-secondary-navy;
+            color: $color-primary-white;
+            border-radius: 50px;
+            padding: 1rem 4rem;
+            width: 100%;
+            max-width: 400px;
+            font-weight: 700;
+            border: none;
+
+            &:hover {
+                background-color: lighten($color-secondary-navy, 10%);
+            }
+        }
     }
 }

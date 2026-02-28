@@ -1,131 +1,192 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/fonts' as *;
 
 .archetype-banner {
-    background: linear-gradient(135deg, $color-primary-black 0%, lighten($color-primary-black, 15%) 100%);
-    color: $color-primary-white;
-    padding: 4rem 5%;
-    position: relative;
-    overflow: hidden;
+    padding: 3rem 5%;
     text-align: center;
-    border-bottom: 4px solid $color-primary-red;
-
-    @media (min-width: $max-width-md) {
-        padding: 6rem 10%;
-    }
-
-    &__container {
-        position: relative;
-        z-index: 2;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    &__intro {
-        font-size: 1.25rem;
-        color: $color-tertiary-paleshell;
-        margin-bottom: 2rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-bottom: 3rem;
-    }
-
-    &__longevity {
-        background-color: rgba($color-primary-white, 0.1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba($color-primary-white, 0.2);
-        padding: 1.5rem 2rem;
-        border-radius: 12px;
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-
-        @media (min-width: 600px) {
-            flex-direction: row;
-            gap: 1rem;
-        }
-
-        .longevity-label {
-            font-size: 1.125rem;
-            color: $color-tertiary-paleshell;
-        }
-
-        .longevity-value {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: $color-accent-yellow;
-            letter-spacing: -0.5px;
-        }
-    }
-}
-
-.archetype-badge {
     background-color: $color-primary-white;
-    color: $color-primary-black;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-
-    &:hover {
-        transform: translateY(-5px);
-    }
+    max-width: $max-width-lg;
+    margin: 0 auto;
 
     &__title {
-        font-size: 1.75rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
+        color: $color-secondary-navy;
+        margin-bottom: 2rem;
+        font-family: $font-family-secondary;
+        font-size: 36px;
+        line-height: 40px;
+
+        @include tablet {
+            font-size: 48px;
+            line-height: 56px;
+        }
     }
 
-    &__percentage {
-        font-size: 1.25rem;
-        color: $color-tertiary-paleshell;
+    &__subtitle {
+        color: $color-primary-black;
+        margin-bottom: 3rem;
         font-weight: 600;
-    }
-}
+        font-size: 24px;
+        line-height: 28px;
 
-.archetype-banner__graphic {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-
-    .shape {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(60px);
-        opacity: 0.3;
-        animation: float 12s infinite ease-in-out alternate;
+        @include tablet {
+            font-size: 28px;
+            line-height: 36px;
+        }
     }
 
-    .shape-1 {
-        width: 400px;
-        height: 400px;
-        background-color: $color-primary-red;
-        top: -100px;
-        left: -100px;
+    &__cards {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+
+        @include tablet {
+            margin-bottom: 8rem;
+        }
     }
 
-    .shape-2 {
-        width: 300px;
-        height: 300px;
-        background-color: $color-accent-yellow;
-        bottom: -50px;
-        right: -50px;
-        animation-delay: -5s;
+    .card-stack {
+        position: relative;
+        width: 200px;
+        height: 220px;
+
+        @include tablet {
+            width: 300px;
+            height: 320px;
+        }
+
+        &__back,
+        &__front {
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            border: 1px solid var(--Text, #0D0D0D);
+            background: var(--Color, #FFF);
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        &__back {
+            z-index: 1;
+            background: var(--grey, #EBEBEB);
+
+            @include tablet {
+                transform: rotate(10deg) translate(20px, 10px);
+            }
+        }
+
+        &__front {
+            transform: rotate(-5deg);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+
+            @include tablet {
+                padding: 2rem;
+            }
+
+            .archetype-icon {
+                width: 45px;
+                height: 50px;
+                object-fit: contain;
+
+                @include tablet {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+
+            .archetype-name {
+                font-weight: 800;
+                color: $color-primary-black;
+                margin-bottom: 0.5rem;
+                text-align: center;
+                word-wrap: break-word;
+                font-size: 20px;
+                line-height: 24px;
+
+                @include tablet {
+                    font-size: 36px;
+                    line-height: 40px;
+                }
+            }
+
+            .archetype-desc {
+                color: rgba($color-primary-black, 0.6);
+                text-align: center;
+            }
+        }
+    }
+
+    &__traits {
+        text-align: left;
+
+        .traits-title {
+            color: $color-primary-black;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+
+            @include tablet {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    .trait-card {
+        background-color: $color-primary-white;
+        border-radius: 28px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba($color-primary-black, 0.05);
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            border-radius: 28px;
+            border: 1px solid #000;
+            background: var(--Color, #FFF);
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        &__name {
+            font-weight: 700;
+            color: $color-primary-black;
+            margin-bottom: 0.75rem;
+        }
+
+        &__desc {
+            color: rgba($color-primary-black, 0.7);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        &__tags {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            .trait-tag {
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                background-color: $color-primary-white;
+                border: 1px solid rgba($color-primary-black, 0.15);
+                border-radius: 50px;
+                font-size: 0.85rem;
+                color: $color-primary-black;
+                text-align: center;
+            }
+        }
     }
 }
