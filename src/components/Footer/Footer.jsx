@@ -1,4 +1,7 @@
 import React from 'react';
+import xIcon from '../../assets/icons/x.svg';
+import instagramIcon from '../../assets/icons/instagram.svg';
+import facebookIcon from '../../assets/icons/facebook.svg';
 import './Footer.scss';
 
 const Footer = () => {
@@ -50,9 +53,9 @@ const Footer = () => {
             <div className="footer__bottom">
                 <p>&copy; {new Date().getFullYear()} LoveBug. All rights reserved.</p>
                 <div className="footer__socials">
-                    <a href="#twitter" aria-label="Twitter">𝕏</a>
-                    <a href="#instagram" aria-label="Instagram">📸</a>
-                    <a href="#linkedin" aria-label="LinkedIn">💼</a>
+                    <a href="#twitter" aria-label="Twitter"><img src={xIcon} alt="Twitter" /></a>
+                    <a href="#instagram" aria-label="Instagram"><img src={instagramIcon} alt="Instagram" /></a>
+                    <a href="#facebook" aria-label="Facebook"><img src={facebookIcon} alt="Facebook" /></a>
                 </div>
             </div>
         </footer>
