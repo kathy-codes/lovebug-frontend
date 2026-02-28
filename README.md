@@ -1,4 +1,4 @@
-# InStock-client
+# Lovebug-client
 
 The front end of the Lovebug project - a compatability dating app. Repo for the server side can be found at the link below:
 
