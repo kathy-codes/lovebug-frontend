@@ -1,13 +1,12 @@
 @use '../../styles/variables' as *;
 
-.landing-page {
+.navigation {
     &__header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 5%;
-        background-color: rgba($color-primary-white, 0.95);
-        backdrop-filter: blur(10px);
+        background-color: $color-primary-background;
         position: sticky;
         top: 0;
         z-index: 100;
