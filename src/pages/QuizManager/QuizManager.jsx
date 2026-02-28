@@ -63,6 +63,7 @@ const QuizManager = ({ responses, setResponses }) => {
                 return <SexualOrientation
                     sexual_orientation={responses?.sexual_orientation}
                     setSexualOrientation={(newOrientation) => setResponses({ ...responses, sexual_orientation: newOrientation })}
+                    gender={responses?.gender}
                 />
             case 5:
                 return <Education

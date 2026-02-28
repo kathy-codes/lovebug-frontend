@@ -1,8 +1,13 @@
 import "./SexualOrientation.scss";
 
-const SexualOrientation = ({ sexual_orientation, setSexualOrientation }) => {
-    const sexual_orientations = ['Straight', 'Bisexual', 'Lesbian', 'Gay', 'Queer'];
+const SexualOrientation = ({ sexual_orientation, setSexualOrientation, gender }) => {
+    let sexual_orientations = ['Straight', 'Bisexual', 'Lesbian', 'Gay', 'Queer'];
     
+    if (gender === 'Male') {
+        sexual_orientations = sexual_orientations.filter(so => so !== 'Lesbian');
+    } else if (gender === 'Female') {
+        sexual_orientations = sexual_orientations.filter(so => so !== 'Gay');
+    }
     return (
         <div className="sexual-orientation-container">
             <h2>What is your sexual orientation?</h2>
