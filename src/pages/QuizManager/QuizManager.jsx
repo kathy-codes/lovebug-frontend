@@ -17,7 +17,7 @@ import EmotionalExpressiveness from "../../components/quizquestions/EmotionalExp
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
-    // We have 10 steps. Let's use 1-based indexing for the UI.
+    // We have 13 steps. Let's use 1-based indexing for the UI.
     const [step, setStep] = useState(1);
     const totalSteps = 13;
     
@@ -112,17 +112,32 @@ const QuizManager = ({ responses, setResponses }) => {
         }
     };
 
+    const progressPercentage = (step / totalSteps) * 100;
+
     return (
         <div className="quiz-manager">
-            <h2>Question {step} of {totalSteps}</h2>
+            <div className="quiz-progress-header">
+                <div className="quiz-step-tracker">
+                    {step} / {totalSteps}
+                </div>
+            </div>
+            
+            <div className="quiz-progress-container">
+                <div 
+                    className="quiz-progress-bar" 
+                    style={{ width: `${progressPercentage}%` }}
+                ></div>
+            </div>
             
             <div className="quiz-content">
                 {renderStepContent()}
             </div>
 
             <div className="quiz-controls">
-                {step > 1 && (
+                {step > 1 ? (
                     <Button onClick={handlePrev}>Back</Button>
+                ) : (
+                    <Button isLink to="/" variant="secondary">Cancel</Button>
                 )}
                 
                 {step < totalSteps ? (

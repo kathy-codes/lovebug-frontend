@@ -1,0 +1,43 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/functions" as *;
+@use "../../../styles/mixins" as *;
+
+.education-container {
+    text-align: center;
+    width: 100%;
+}
+
+.education-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.education-button {
+    width: 100%;
+    max-width: 380px;
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 30px;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: $color-primary-black;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    &.selected {
+        background-color: $color-primary-black;
+        color: $color-primary-white;
+        border-color: $color-primary-black;
+    }
+}
