@@ -78,19 +78,6 @@
         }
     }
 
-    &__btn-secondary {
-        background-color: transparent;
-        color: $color-primary-white;
-        border: 2px solid $color-primary-white;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        font-weight: 700;
-
-        &:hover {
-            background-color: rgba($color-primary-white, 0.1);
-        }
-    }
-
     &__fineprint {
         font-size: 0.85rem;
         color: rgba($color-primary-white, 0.7);
