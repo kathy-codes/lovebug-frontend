@@ -82,9 +82,9 @@
     }
 
     &:disabled {
-        background-color: $color-tertiary-paleshell;
-        color: $color-tertiary-paleshell;
-        opacity: 0.5;
+        background: var(--inactive, #D9D9D9);
+        color: $color-primary-white;
+        opacity: 1;
         cursor: not-allowed;
         pointer-events: none;
     }

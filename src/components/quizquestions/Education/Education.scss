@@ -36,8 +36,8 @@
     }
 
     &.selected {
-        background-color: $color-primary-black;
-        color: $color-primary-white;
-        border-color: $color-primary-black;
+        background-color: $color-tertiary-paleshell;
+        color: $color-primary-black;
+        border-color: transparent;
     }
 }

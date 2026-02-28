@@ -35,8 +35,9 @@
     }
 
     &.selected {
-        border-color: $color-primary-black;
-        background-color: rgba(0, 0, 0, 0.03);
+        background-color: $color-tertiary-paleshell;
+        color: $color-primary-black;
+        border-color: transparent;
     }
 
     .career-icon {
