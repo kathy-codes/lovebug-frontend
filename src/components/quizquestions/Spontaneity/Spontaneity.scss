@@ -1,3 +1,59 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/functions" as *;
 @use "../../../styles/mixins" as *;
+
+.spontaneity-container {
+    text-align: center;
+    width: 100%;
+}
+
+.spontaneity-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.spontaneity-button {
+    width: 100%;
+    max-width: 250px;
+    background-color: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 30px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $color-primary-black;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    &.selected {
+        background-color: $color-primary-black;
+        color: $color-primary-white;
+        border-color: $color-primary-black;
+        
+        .spontaneity-icon {
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    .spontaneity-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+    
+    span {
+        text-align: center;
+        width: 100%;
+    }
+}
