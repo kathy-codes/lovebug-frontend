@@ -38,22 +38,26 @@
     &__cards {
         display: flex;
         justify-content: center;
-        margin-left: 1.5rem;
-        margin-bottom: 10rem;
+        margin-bottom: 3rem;
+
+        @include tablet {
+            margin-bottom: 8rem;
+        }
     }
 
     .card-stack {
         position: relative;
-        width: 160px;
-        height: 178px;
+        width: 200px;
+        height: 220px;
 
         @include tablet {
-            width: 250px;
-            height: 280px;
+            width: 300px;
+            height: 320px;
         }
 
         &__back,
         &__front {
+            box-sizing: border-box;
             position: absolute;
             top: 0;
             left: 0;
@@ -81,22 +85,42 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
+
+            @include tablet {
+                padding: 2rem;
+            }
 
             .archetype-icon {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 1.5rem;
+                width: 45px;
+                height: 50px;
+                object-fit: contain;
+
+                @include tablet {
+                    width: 90px;
+                    height: 90px;
+                    margin-bottom: 1.5rem;
+                }
             }
 
             .archetype-name {
                 font-weight: 800;
                 color: $color-primary-black;
                 margin-bottom: 0.5rem;
+                text-align: center;
+                word-wrap: break-word;
+                font-size: 20px;
+                line-height: 24px;
+
+                @include tablet {
+                    font-size: 36px;
+                    line-height: 40px;
+                }
             }
 
             .archetype-desc {
                 color: rgba($color-primary-black, 0.6);
+                text-align: center;
             }
         }
     }

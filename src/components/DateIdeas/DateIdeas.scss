@@ -2,17 +2,13 @@
 @use '../../styles/mixins' as *;
 
 .date-ideas {
-    padding: 2rem 5%;
+    padding: 1rem 5%;
     max-width: $max-width-lg;
     margin: 0 auto;
 
-    @include tablet {
-        padding: 4rem 5%;
-    }
-
     &__title {
         color: $color-primary-black;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         font-weight: 800;
     }
 
@@ -20,7 +16,6 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-        margin-bottom: 1.5rem;
         flex-wrap: wrap;
     }
 
@@ -44,7 +39,7 @@
     &__prompt {
         font-weight: 800;
         color: $color-primary-black;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     &__grid {
@@ -61,36 +56,34 @@
     .date-card {
         background-color: $color-primary-white;
         border-radius: 28px;
-        overflow: hidden;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
         border: 1px solid rgba($color-primary-black, 0.1);
         display: flex;
         flex-direction: column;
+        padding: 2rem;
+
+        &:hover {
+            border-radius: 28px;
+            border: 1px solid #000;
+            background: var(--Color, #FFF);
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        }
 
         &__image {
             width: 100%;
-            height: 200px;
+            aspect-ratio: 1 / 1;
             object-fit: cover;
-            border-bottom: 1px solid rgba($color-primary-black, 0.1);
-        }
-
-        &__content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+            border-radius: 28px;
         }
 
         &__title {
             font-weight: 800;
             color: $color-primary-black;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0;
         }
 
         &__distance {
             color: rgba($color-primary-black, 0.5);
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
         }
 
         &__description {
