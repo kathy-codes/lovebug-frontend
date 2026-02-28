@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+
+.trust-badges {
+    padding: 2rem 5%;
+    border-bottom: 1px solid rgba($color-tertiary-paleshell, 0.3);
+
+    &__container {
+        max-width: $max-width-lg;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+    background-color: $color-primary-white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    &__icon-container {
+        width: 48px;
+        height: 48px;
+        background-color: lighten($color-tertiary-paleshell, 15%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid $color-primary-background;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    &__icon {
+        font-size: 1.25rem;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $color-secondary-navy;
+        margin: 0 0 0.25rem 0;
+    }
+
+    &__description {
+        font-size: 0.85rem;
+        color: $color-primary-black;
+        margin: 0;
+        opacity: 0.8;
+    }
+}
