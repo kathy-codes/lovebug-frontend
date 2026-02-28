@@ -31,12 +31,12 @@
     font-size: 1rem;
 
     &--primary {
-        background-color: $color-primary-black;
+        background-color: $color-primary-red;
         color: $color-primary-white;
         box-shadow: 0 4px 14px rgba(19, 24, 44, 0.2);
 
         &:hover {
-            background-color: lighten($color-primary-black, 10%);
+            background-color: darken($color-primary-red, 10%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(19, 24, 44, 0.3);
         }
@@ -48,7 +48,7 @@
         border: 2px solid $color-primary-black;
 
         &:hover {
-            background-color: $color-background;
+            background-color: $color-primary-background;
             transform: translateY(-2px);
         }
     }

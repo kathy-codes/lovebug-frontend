@@ -32,7 +32,7 @@ const BeyondTheSwipe = () => {
                     </li>
                 </ul>
 
-                <button className="btn btn--secondary btn--large beyond-swipe__btn">Learn More About Our Algorithm</button>
+                <button className="btn btn--large beyond-swipe__btn">Learn More About Our Algorithm</button>
             </div>
 
             <div className="beyond-swipe__graphic">

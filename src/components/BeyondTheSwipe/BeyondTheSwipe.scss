@@ -74,10 +74,13 @@
 
     &__btn {
         background-color: $color-secondary-navy;
-        color: white;
+        color: $color-primary-white;
+        border-color: $color-secondary-navy;
 
         &:hover {
             background-color: darken($color-secondary-navy, 10%);
+            border-color: darken($color-secondary-navy, 10%);
+            color: $color-primary-white;
         }
     }
 
@@ -98,7 +101,7 @@
     padding: 2.5rem;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 20px 40px rgba($color-secondary-navy, 0.08);
+    box-shadow: 0 30px 60px rgba($color-secondary-navy, 0.15);
     border: 1px solid rgba($color-tertiary-paleshell, 0.3);
 
     &__title {
@@ -150,18 +153,26 @@
             background-color: $color-secondary-navy;
             border-radius: 4px;
         }
+    }
 
-        // Apply red to alternating bars for visual flair matching the mockup
-        &:nth-child(even) &__bar-fill {
-            background-color: $color-primary-red;
-        }
+    // Custom colors for specific factors as requested
+    .factor-item:nth-child(1) .factor-item__bar-fill {
+        background-color: $color-primary-red;
+    }
+
+    .factor-item:nth-child(3) .factor-item__bar-fill {
+        background-color: $color-accent-yellow;
+    }
+
+    .factor-item:nth-child(4) .factor-item__bar-fill {
+        background-color: $color-tertiary-paleshell;
     }
 
     &__testimonial {
         background-color: rgba($color-accent-yellow, 0.1);
         padding: 1.5rem;
         border-radius: 12px;
-        border-left: 4px solid $color-accent-yellow;
+        border-left: 4px solid $color-primary-red;
 
         .testimonial-text {
             font-size: 0.95rem;

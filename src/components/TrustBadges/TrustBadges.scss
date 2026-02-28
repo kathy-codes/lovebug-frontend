@@ -24,6 +24,10 @@
     align-items: center;
     gap: 1.25rem;
     flex: 1;
+    background-color: $color-primary-white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
     &__icon-container {
         width: 48px;
@@ -33,7 +37,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid $color-background;
+        border: 2px solid $color-primary-background;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 

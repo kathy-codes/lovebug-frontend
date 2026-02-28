@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import holdingHands from '../../assets/images/holdinghands.png';
 import './HeroBanner.scss';
 
 const HeroBanner = () => {
@@ -7,8 +8,7 @@ const HeroBanner = () => {
         <section className="hero-banner">
             <div className="hero-banner__content">
                 <h1 className="hero-banner__title">
-                    <span className="hero-banner__title-secondary">Find Your Perfect</span><br />
-                    <span className="hero-banner__title-primary">Match</span>
+                    <span className="hero-banner__title-secondary">Find Your Perfect Match</span>
                 </h1>
 
                 <p className="hero-banner__subtitle">
@@ -26,7 +26,7 @@ const HeroBanner = () => {
                 <div className="hero-banner__image-container">
                     <div className="hero-banner__image-badge">🤍</div>
                     <img
-                        src="../../assets/images/holdinghands.png"
+                        src={holdingHands}
                         alt="Holding Hands"
                         className="hero-banner__main-image"
                     />
