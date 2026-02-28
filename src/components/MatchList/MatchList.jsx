@@ -6,7 +6,7 @@ import MatchCard from '../MatchCard/MatchCard';
 const MatchList = ({ matches }) => {
     return (
         <section className="match-list">
-            <Typography variant="h2" className="match-list__title">Personality Matches Nearby</Typography>
+            <Typography variant="h3" className="match-list__title">Personality Matches Nearby</Typography>
             <div className="match-list__container">
                 {matches.map(match => (
                     <MatchCard key={match.id} match={match} />

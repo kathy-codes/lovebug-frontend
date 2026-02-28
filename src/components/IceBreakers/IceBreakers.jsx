@@ -14,7 +14,7 @@ const ICE_BREAKERS = [
 const IceBreakers = () => {
     return (
         <section className="ice-breakers">
-            <Typography variant="h2" className="ice-breakers__title">Ice Breakers</Typography>
+            <Typography variant="h3" className="ice-breakers__title">Ice Breakers</Typography>
 
             <div className="ice-breakers__grid">
                 {ICE_BREAKERS.map((question, index) => (

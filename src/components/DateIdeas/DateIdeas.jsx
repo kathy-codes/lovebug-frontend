@@ -14,7 +14,7 @@ const DATE_IDEAS = [
 const DateIdeas = () => {
     return (
         <section className="date-ideas">
-            <Typography variant="h2" className="date-ideas__title">Date Ideas</Typography>
+            <Typography variant="h3" className="date-ideas__title">Date Ideas</Typography>
 
             <div className="date-ideas__header">
                 <Typography variant="p2" className="date-ideas__subtitle">You feel most alive and energized when you are in</Typography>
@@ -22,14 +22,14 @@ const DateIdeas = () => {
                 <span className="midday-pill">☼ Midday mode</span>
             </div>
 
-            <Typography variant="h3" className="date-ideas__prompt">Here are date ideas that match this:</Typography>
+            <Typography variant="p1" className="date-ideas__prompt">Here are date ideas that match this:</Typography>
 
             <div className="date-ideas__grid">
                 {DATE_IDEAS.map((idea, index) => (
                     <div key={index} className="date-card">
                         <img src={idea.image} alt={idea.title} className="date-card__image" />
                         <div className="date-card__content">
-                            <Typography variant="h3" className="date-card__title">{idea.title}</Typography>
+                            <Typography variant="h4" className="date-card__title">{idea.title}</Typography>
                             <Typography variant="p2" className="date-card__distance">{idea.distance}</Typography>
                             <Typography variant="p2" className="date-card__description">{idea.description}</Typography>
                         </div>

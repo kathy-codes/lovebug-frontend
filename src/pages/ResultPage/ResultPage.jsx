@@ -74,7 +74,7 @@ const ResultPage = () => {
                 <IceBreakers />
 
                 <div className="result-page__safety-message">
-                    <Typography variant="h1" className="safety-text">Stay safe and don't bug people!</Typography>
+                    <Typography variant="h2" className="safety-text">Stay safe and don't bug people!</Typography>
                     <img src={logoIcon} alt="Lovebug" className="safety-icon" />
                 </div>
             </main>
