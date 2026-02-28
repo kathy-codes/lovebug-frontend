@@ -1,18 +1,14 @@
 @use '../../styles/variables' as *;
 
-// Base styles & Typography reset (Landing Page specific root styles)
 .landing-page {
     font-family: $font-family-primary;
     color: $color-primary-black;
     background-color: $color-primary-white;
     line-height: 1.6;
     overflow-x: hidden;
-
-    // smooth scrolling for internal links
     scroll-behavior: smooth;
 }
 
-// Typography utilities
 .highlight-red {
     color: $color-primary-red;
 }
@@ -21,7 +17,6 @@
     color: $color-accent-yellow;
 }
 
-// Buttons
 .btn {
     display: inline-flex;
     align-items: center;

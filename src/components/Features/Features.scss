@@ -1,20 +1,24 @@
 @use '../../styles/variables' as *;
 
 .features {
-    padding: 5rem 5%;
-    background-color: $color-primary-white;
-
-    @media (min-width: $max-width-md) {
-        padding: 8rem 10%;
-    }
+    padding: 6rem 5%;
+    max-width: $max-width-lg;
+    margin: 0 auto;
+    text-align: center;
 
     &__title {
-        text-align: center;
         font-size: 2.5rem;
         font-weight: 800;
-        margin-bottom: 4rem;
-        color: $color-primary-black;
+        color: $color-secondary-navy;
+        margin-bottom: 0.5rem;
         letter-spacing: -0.5px;
+    }
+
+    &__subtitle {
+        font-size: 1.125rem;
+        color: $color-primary-black;
+        margin-bottom: 4rem;
+        opacity: 0.8;
     }
 
     &__grid {
@@ -22,53 +26,53 @@
         grid-template-columns: 1fr;
         gap: 2rem;
 
-        @media (min-width: 600px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media (min-width: $max-width-md) {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 }
 
 .feature-card {
-    background-color: $color-background;
+    background-color: $color-tertiary-paleshell;
     border-radius: 16px;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba($color-tertiary-paleshell, 0.2);
 
     &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(19, 24, 44, 0.05);
-        border-color: rgba($color-tertiary-paleshell, 0.2);
+        box-shadow: 0 10px 30px rgba($color-secondary-navy, 0.1);
     }
 
-    &__icon {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        background-color: $color-primary-white;
-        width: 60px;
-        height: 60px;
+    &__number {
+        width: 40px;
+        height: 40px;
+        background-color: $color-primary-red;
+        color: $color-primary-white;
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        font-weight: 800;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
 
     &__title {
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 800;
+        color: $color-secondary-navy;
         margin-bottom: 1rem;
-        color: $color-primary-black;
     }
 
     &__description {
-        color: $color-tertiary-paleshell;
-        font-size: 0.95rem;
+        font-size: 1rem;
+        color: $color-primary-black;
         line-height: 1.6;
+        margin: 0;
+        opacity: 0.85;
     }
 }
