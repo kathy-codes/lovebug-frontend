@@ -127,6 +127,9 @@ const QuizManager = ({ responses, setResponses }) => {
     };
 
     const progressPercentage = (step / totalSteps) * 100;
+    
+    // Check if all quiz values have been answered
+    const allAnswered = Object.values(responses || {}).every(val => val !== "" && val !== undefined && val !== null);
 
     return (
         <div className="quiz-manager">
@@ -161,7 +164,7 @@ const QuizManager = ({ responses, setResponses }) => {
                 {step < totalSteps ? (
                     <Button onClick={handleNext} variant="quiz-primary">Continue</Button>
                 ) : (
-                    <Button onClick={handleSubmit} variant="quiz-primary">Submit</Button>
+                    <Button onClick={handleSubmit} variant={allAnswered ? "quiz-primary" : "quiz-secondary"}>Submit</Button>
                 )}
             </div>
         </div>
