@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
 import Age from "../../components/quizquestions/Age/Age.jsx";
 import Education from "../../components/quizquestions/Education/Education.jsx";
+import Gender from "../../components/quizquestions/Gender/Gender.jsx";
 import Location from "../../components/quizquestions/Location/Location.jsx";
+import SexualOrientation from "../../components/quizquestions/SexualOrientation/SexualOrientation.jsx";
 import CareerField from "../../components/quizquestions/CareerField/CareerField.jsx";
 import CareerAmbition from "../../components/quizquestions/CareerAmbition/CareerAmbition.jsx";
 import Extraversion from "../../components/quizquestions/Extraversion/Extraversion.jsx";
@@ -14,17 +16,17 @@ import Openness from "../../components/quizquestions/Openness/Openness.jsx";
 import Spontaneity from "../../components/quizquestions/Spontaneity/Spontaneity.jsx";
 import Chronotype from "../../components/quizquestions/Chronotype/Chronotype.jsx";
 import EmotionalExpressiveness from "../../components/quizquestions/EmotionalExpressiveness/EmotionalExpressiveness.jsx";
+import logoIcon from "../../assets/logo/lovebug.svg";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
-    // We have 13 steps. Let's use 1-based indexing for the UI.
+    // We have 15 steps. Let's use 1-based indexing for the UI.
     const [step, setStep] = useState(1);
-    const totalSteps = 13;
+    const totalSteps = 15;
     
     const handleNext = () => {
         if (step < totalSteps) {
             setStep((prev) => prev + 1);
-            console.log(responses);
         }
     };
 
@@ -35,8 +37,10 @@ const QuizManager = ({ responses, setResponses }) => {
     };
 
     const handleSubmit = () => {
-        console.log("Quiz submitted!", responses);
-        // Add your submit logic here
+        if (allAnswered) {
+            console.log(responses);
+            // Add your submit logic here
+        }
     };
 
     // Render the appropriate component based on the current step
@@ -53,56 +57,67 @@ const QuizManager = ({ responses, setResponses }) => {
                     setLocation={(newLocation) => setResponses({ ...responses, location: newLocation })}
                 />
             case 3:
+                return <Gender
+                    gender={responses?.gender}
+                    setGender={(newGender) => setResponses({ ...responses, gender: newGender })}
+                />
+            case 4:
+                return <SexualOrientation
+                    sexual_orientation={responses?.sexual_orientation}
+                    setSexualOrientation={(newOrientation) => setResponses({ ...responses, sexual_orientation: newOrientation })}
+                    gender={responses?.gender}
+                />
+            case 5:
                 return <Education
                     education={responses?.education}
                     setEducation={(newEducation) => setResponses({ ...responses, education: newEducation })}
                 />
-            case 4:
+            case 6:
                 return <CareerField
                     careerField={responses?.career_field}
                     setCareerField={(newCareerField) => setResponses({ ...responses, career_field: newCareerField })}
                 />
-            case 5:
+            case 7:
                 return <CareerAmbition
                     careerAmbition={responses?.career_ambition}
                     setCareerAmbition={(newCareerAmbition) => setResponses({ ...responses, career_ambition: newCareerAmbition })}
                 />
-            case 6:
+            case 8:
                 return <Extraversion
                     extraversion={responses?.extraversion}
                     setExtraversion={(newExtraversion) => setResponses({ ...responses, extraversion: newExtraversion })}
                 />
-            case 7:
+            case 9:
                 return <Conscientiousness
                     conscientiousness={responses?.conscientiousness}
                     setConscientiousness={(newConscientiousness) => setResponses({ ...responses, conscientiousness: newConscientiousness })}
                 />
-            case 8:
+            case 10:
                 return <LoveLanguage
                     loveLanguage={responses?.love_language}
                     setLoveLanguage={(newLoveLanguage) => setResponses({ ...responses, love_language: newLoveLanguage })}
                 />
-            case 9:
+            case 11:
                 return <Agreeableness
                     agreeableness={responses?.agreeableness}
                     setAgreeableness={(newAgreeableness) => setResponses({ ...responses, agreeableness: newAgreeableness })}
                 />
-            case 10:
+            case 12:
                 return <Openness
                     openness={responses?.openness}
                     setOpenness={(newOpenness) => setResponses({ ...responses, openness: newOpenness })}
                 />
-            case 11:
+            case 13:
                 return <Spontaneity
                     spontaneity={responses?.spontaneity}
                     setSpontaneity={(newSpontaneity) => setResponses({ ...responses, spontaneity: newSpontaneity })}
                 />
-            case 12:
+            case 14:
                 return <Chronotype
                     chronotype={responses?.chronotype}
                     setChronotype={(newChronotype) => setResponses({ ...responses, chronotype: newChronotype })}
                 />
-            case 13:
+            case 15:
                 return <EmotionalExpressiveness
                     emotionalExpressiveness={responses?.emotional_expressiveness}
                     setEmotionalExpressiveness={(newExpressiveness) => setResponses({ ...responses, emotional_expressiveness: newExpressiveness })}
@@ -113,10 +128,17 @@ const QuizManager = ({ responses, setResponses }) => {
     };
 
     const progressPercentage = (step / totalSteps) * 100;
+    
+    // Check if all quiz values have been answered
+    const allAnswered = Object.values(responses || {}).every(val => val !== "" && val !== undefined && val !== null);
 
     return (
         <div className="quiz-manager">
             <div className="quiz-progress-header">
+                <div className="quiz-logo-container">
+                    <img src={logoIcon} alt="LoveBug logo" className="quiz-logo" />
+                    <span className="quiz-logo-text">LoveBug</span>
+                </div>
                 <div className="quiz-step-tracker">
                     {step} / {totalSteps}
                 </div>
@@ -135,15 +157,15 @@ const QuizManager = ({ responses, setResponses }) => {
 
             <div className="quiz-controls">
                 {step > 1 ? (
-                    <Button onClick={handlePrev}>Back</Button>
+                    <Button onClick={handlePrev} variant="quiz-secondary">Back</Button>
                 ) : (
-                    <Button isLink to="/" variant="secondary">Cancel</Button>
+                    <Button isLink to="/" variant="quiz-secondary">Cancel</Button>
                 )}
                 
                 {step < totalSteps ? (
-                    <Button onClick={handleNext}>Forward</Button>
+                    <Button onClick={handleNext} variant="quiz-primary">Continue</Button>
                 ) : (
-                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button onClick={handleSubmit} variant={allAnswered ? "quiz-primary" : "quiz-secondary"}>Submit</Button>
                 )}
             </div>
         </div>
