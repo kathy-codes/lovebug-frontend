@@ -27,7 +27,6 @@ const QuizManager = ({ responses, setResponses }) => {
     const handleNext = () => {
         if (step < totalSteps) {
             setStep((prev) => prev + 1);
-            console.log(responses);
         }
     };
 
@@ -38,8 +37,10 @@ const QuizManager = ({ responses, setResponses }) => {
     };
 
     const handleSubmit = () => {
-        console.log("Quiz submitted!", responses);
-        // Add your submit logic here
+        if (allAnswered) {
+            console.log(responses);
+            // Add your submit logic here
+        }
     };
 
     // Render the appropriate component based on the current step
