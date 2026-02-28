@@ -107,7 +107,6 @@
         max-width: 500px;
         border-radius: 30px;
 
-        // Background behind the image simulating the beige shape
         &::after {
             content: '';
             position: absolute;
@@ -115,7 +114,7 @@
             right: -20px;
             bottom: -20px;
             left: 20px;
-            background-color: #F2EBE1; // A subtle beige from mockup
+            background-color: #F2EBE1;
             border-radius: 30px;
             z-index: -1;
         }
@@ -188,7 +187,6 @@
 
         .pill-subtitle {
             font-size: 0.75rem;
-            color: $color-tertiary-paleshell;
         }
     }
 }

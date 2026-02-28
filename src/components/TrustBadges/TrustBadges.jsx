@@ -1,4 +1,5 @@
 import React from 'react';
+import Typography from '../Typography/Typography';
 import './TrustBadges.scss';
 
 const BADGES = [
@@ -29,8 +30,8 @@ const TrustBadges = () => {
                             <span className="trust-badge__icon">{badge.icon}</span>
                         </div>
                         <div className="trust-badge__text">
-                            <h3 className="trust-badge__title">{badge.title}</h3>
-                            <p className="trust-badge__description">{badge.description}</p>
+                            <Typography variant="h3" className="trust-badge__title">{badge.title}</Typography>
+                            <Typography variant="p2" className="trust-badge__description">{badge.description}</Typography>
                         </div>
                     </div>
                 ))}
