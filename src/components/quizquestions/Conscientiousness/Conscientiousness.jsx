@@ -4,7 +4,6 @@ const Conscientiousness = ({ conscientiousness, setConscientiousness }) => {
     const conscientiousnesses = [
         "Calendar color-coded and ready",
         "Mostly organized",
-        "A healthy mix of both",
         "Go with the flow",
         "What plans? We improvise"
     ]
@@ -17,23 +16,19 @@ const Conscientiousness = ({ conscientiousness, setConscientiousness }) => {
     
     return (
         <div className="conscientiousness-container">
-            <h2>In social settings, your energy is usually…</h2>
+            <h2>Your approach to plans is...</h2>
             <div className="conscientiousness-options-list">
                 {conscientiousnesses.map((item, index) => {
                     const value = calculateValue(index);
                     return (
-                        <div key={item}>
-                            <label>
-                                <input 
-                                    type="radio" 
-                                    name="conscientiousness" 
-                                    value={value}
-                                    checked={conscientiousness === value}
-                                    onChange={() => setConscientiousness(value)}
-                                />
-                                {item}
-                            </label>
-                        </div>
+                        <button 
+                            key={item}
+                            type="button"
+                            className={`conscientiousness-button ${conscientiousness === value ? 'selected' : ''}`}
+                            onClick={() => setConscientiousness(value)}
+                        >
+                            {item}
+                        </button>
                     );
                 })}
             </div>

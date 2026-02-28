@@ -9,13 +9,15 @@ const Extraversion = ({ extraversion, setExtraversion }) => {
     ];
 
     useEffect(() => {
-        // Default to 0.50 if not set
-        if (extraversion === undefined || extraversion === null) {
+        // Default to 0.50 if not set, taking care of empty string from uninitialized form state
+        if (extraversion === undefined || extraversion === null || extraversion === "") {
             setExtraversion(0.50);
         }
     }, [extraversion, setExtraversion]);
 
-    const currentValue = extraversion !== undefined && extraversion !== null ? extraversion : 0.50;
+    const currentValue = (extraversion !== undefined && extraversion !== null && extraversion !== "") 
+        ? Number(extraversion) 
+        : 0.50;
 
     return (
         <div className="extraversion-container">
