@@ -6,7 +6,6 @@ const HeroBanner = () => {
     return (
         <section className="hero-banner">
             <div className="hero-banner__content">
-                <div className="hero-banner__heart-icon">🤍</div>
                 <h1 className="hero-banner__title">
                     <span className="hero-banner__title-secondary">Find Your Perfect</span><br />
                     <span className="hero-banner__title-primary">Match</span>
@@ -27,8 +26,8 @@ const HeroBanner = () => {
                 <div className="hero-banner__image-container">
                     <div className="hero-banner__image-badge">🤍</div>
                     <img
-                        src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Hands touching fingers"
+                        src="../../assets/images/holdinghands.png"
+                        alt="Holding Hands"
                         className="hero-banner__main-image"
                     />
 
