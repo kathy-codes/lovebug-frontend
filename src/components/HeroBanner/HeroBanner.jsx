@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import holdingHands from '../../assets/images/holdinghands.png';
+import chevronRight from '../../assets/icons/chevronRight.svg';
 import Typography from '../Typography/Typography';
 import './HeroBanner.scss';
 
@@ -19,7 +20,7 @@ const HeroBanner = () => {
 
                 <div className="hero-banner__actions">
                     <Link to="/quizmanager" className="btn btn--primary btn--large">Get Started Free</Link>
-                    <a href="#how-it-works" className="hero-banner__link-action">How it works &gt;</a>
+                    <a href="#how-it-works" className="hero-banner__link-action">How it works <img src={chevronRight} alt="Chevron Right" className="hero-banner__link-action-icon" /></a>
                 </div>
             </div>
 
