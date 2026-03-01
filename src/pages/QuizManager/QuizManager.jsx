@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
 import Age from "../../components/quizquestions/Age/Age.jsx";
@@ -22,6 +22,7 @@ import "./QuizManager.scss";
 const QuizManager = ({ responses, setResponses }) => {
     const [step, setStep] = useState(1);
     const totalSteps = 15;
+    const navigate = useNavigate();
 
     const handleNext = () => {
         if (step < totalSteps) {
@@ -37,8 +38,8 @@ const QuizManager = ({ responses, setResponses }) => {
 
     const handleSubmit = () => {
         if (allAnswered) {
-            console.log(responses);
-            // Add submit logic here
+            console.log("Quiz submitted!", responses);
+            navigate("/results");
         }
     };
 
