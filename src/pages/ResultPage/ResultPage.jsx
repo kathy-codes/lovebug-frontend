@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Navigation from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
 import ArchetypeBanner from '../../components/ArchetypeBanner/ArchetypeBanner';
@@ -9,10 +10,15 @@ import Typography from '../../components/Typography/Typography';
 import logoIcon from '../../assets/logo/lovebug.svg';
 import './ResultPage.scss';
 
-// Mock data to scaffold the UI before we have real state/API integration
-const MOCK_ARCHETYPE = {
-    title: "The Steady Flame",
-    subtitle: "Reliable warmth, lasting glow",
+const ARCHETYPE_MAP = {
+    "The Adventurer": "Always seeking the next thrill",
+    "The Guardian": "Reliable warmth, lasting glow",
+    "The Free Spirit": "Goes where the wind takes them",
+    "The Charmer": "Lights up every room",
+    "The Mastermind": "Strategic and thoughtful",
+    "The Caregiver": "Nurturing and kind-hearted",
+    "The Idealist": "Dreamy and optimistic",
+    "The Pragmatist": "Practical and grounded"
 };
 
 const MOCK_TRAITS = [
@@ -64,12 +70,59 @@ const MOCK_MATCHES = [
 ];
 
 const ResultPage = () => {
+    const { id } = useParams();
+    const [user, setUser] = useState(null);
+    const [matches, setMatches] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            if (!id) {
+                setLoading(false);
+                return;
+            }
+            try {
+                const userRes = await fetch(`http://localhost:8080/api/users/${id}`);
+                const matchesRes = await fetch(`http://localhost:8080/api/matches/${id}`);
+                const userData = await userRes.json();
+                const matchesData = await matchesRes.json();
+
+                setUser(userData);
+                setMatches(matchesData.map((m, i) => ({
+                    id: m.user_id,
+                    name: `${m.name}, ${m.age}`,
+                    photo: i === 0
+                        ? "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fit=crop&w=400&h=400"
+                        : i === 1
+                            ? "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=400&h=400"
+                            : "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&w=400&h=400",
+                    archetypeTagline: ARCHETYPE_MAP[m.personality_archetype] || "Curious mind, gentle heart",
+                    longevityMonths: `${m.relationship_longevity_months} months`,
+                    whyFits: `You both match at ${m.compatibility_score}% compatibility score based on our algorithm.`,
+                    sharedSignals: [m.chronotype || "Daytime", m.career_field || "Tech"]
+                })));
+            } catch (err) {
+                console.error("Error fetching results", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [id]);
+
+    if (loading) return <div style={{ padding: '5rem', textAlign: 'center', fontFamily: 'Inter, sans-serif' }}>Finding your perfect matches...</div>;
+
+    const currentArchetype = {
+        title: user?.personality_archetype || "The Pragmatist",
+        subtitle: ARCHETYPE_MAP[user?.personality_archetype] || "Practical and grounded"
+    };
+
     return (
         <div className="result-page">
             <Navigation />
             <main className="result-page__main">
-                <ArchetypeBanner archetype={MOCK_ARCHETYPE} traits={MOCK_TRAITS} />
-                <MatchList matches={MOCK_MATCHES} />
+                <ArchetypeBanner archetype={currentArchetype} traits={MOCK_TRAITS} />
+                <MatchList matches={matches.length > 0 ? matches : MOCK_MATCHES} />
                 <DateIdeas />
                 <IceBreakers />
 

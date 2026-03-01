@@ -1,18 +1,22 @@
+@use "../../styles/functions" as *;
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .quiz-manager {
     max-width: $max-width-md;
-    margin: 0 auto;
-    padding: 2rem;
+    margin: 1rem;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     min-height: 70vh;
     font-family: $font-family-primary;
-
-    // Optional: adding a light grey background ensures the white card is visible
-    // You can remove this if the global body background is already set
-    background-color: #f8f8f8; 
+    background-color: #f8f8f8;
     border-radius: 12px;
+
+    @include tablet {
+        margin: pxToRem(68) auto;
+        padding: 2rem;
+    }
 
     h2 {
         color: $color-primary-black;
@@ -28,20 +32,25 @@
     margin-bottom: 0.5rem;
 
     .quiz-logo-container {
+        text-decoration: none;
         display: flex;
         align-items: center;
         gap: 8px;
-        
+
         .quiz-logo {
-            height: 24px; // Adjust to match design appropriately
+            height: 24px;
             width: auto;
         }
 
         .quiz-logo-text {
-            font-family: $font-family-secondary;
+            font-family: $font-family-primary;
+            color: $color-secondary-navy;
             font-weight: 700;
-            font-size: 1.25rem;
-            color: $color-primary-black;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: -0.5px;
         }
     }
 }
@@ -77,21 +86,33 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
-    width: 50%;
+    width: 100%;
     align-self: center;
-    
-    // Add the card styling here
     background-color: $color-primary-white;
     border-radius: 28px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); // Slight shadow
-    padding: 2rem;
-    min-height: 400px; // Maintain consistent size across questions
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    min-height: 350px;
+
+    @include tablet {
+        width: 60%;
+        padding: 2rem;
+        min-height: 400px;
+    }
 }
 
 .quiz-controls {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 1rem;
     margin-top: auto;
-    padding-top: 2rem;
+    padding-top: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        gap: 1.5rem;
+        padding-top: 2rem;
+    }
 }

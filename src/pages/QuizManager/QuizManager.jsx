@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Button from "../../components/Button/Button.jsx";
 import Age from "../../components/quizquestions/Age/Age.jsx";
@@ -20,10 +20,10 @@ import logoIcon from "../../assets/logo/lovebug.svg";
 import "./QuizManager.scss";
 
 const QuizManager = ({ responses, setResponses }) => {
-    // We have 15 steps. Let's use 1-based indexing for the UI.
     const [step, setStep] = useState(1);
     const totalSteps = 15;
-    
+    const navigate = useNavigate();
+
     const handleNext = () => {
         if (step < totalSteps) {
             setStep((prev) => prev + 1);
@@ -36,20 +36,40 @@ const QuizManager = ({ responses, setResponses }) => {
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (allAnswered) {
-            console.log(responses);
-            // Add your submit logic here
+            try {
+                const response = await fetch("http://localhost:8080/api/quiz", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(responses)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log("Quiz submitted!", data);
+                    if (data && data.user_id) {
+                        navigate(`/results/${data.user_id}`);
+                    } else {
+                        console.error("Missing user_id from response.");
+                    }
+                } else {
+                    console.error("Failed to submit quiz");
+                }
+            } catch (error) {
+                console.error("Error submitting quiz:", error);
+            }
         }
     };
 
-    // Render the appropriate component based on the current step
     const renderStepContent = () => {
         switch (step) {
             case 1:
-                return <Age 
-                    age={responses?.age} 
-                    setAge={(newAge) => setResponses({ ...responses, age: newAge })} 
+                return <Age
+                    age={responses?.age}
+                    setAge={(newAge) => setResponses({ ...responses, age: newAge })}
                 />
             case 2:
                 return <Location
@@ -128,29 +148,38 @@ const QuizManager = ({ responses, setResponses }) => {
     };
 
     const progressPercentage = (step / totalSteps) * 100;
-    
-    // Check if all quiz values have been answered
+
+    const stepKeys = {
+        1: 'age', 2: 'location', 3: 'gender', 4: 'sexual_orientation',
+        5: 'education', 6: 'career_field', 7: 'career_ambition', 8: 'extraversion',
+        9: 'conscientiousness', 10: 'love_language', 11: 'agreeableness', 12: 'openness',
+        13: 'spontaneity', 14: 'chronotype', 15: 'emotional_expressiveness'
+    };
+    const currentKey = stepKeys[step];
+    const isCurrentStepAnswered = responses && responses[currentKey] !== "" && responses[currentKey] !== undefined && responses[currentKey] !== null;
+
     const allAnswered = Object.values(responses || {}).every(val => val !== "" && val !== undefined && val !== null);
 
     return (
         <div className="quiz-manager">
             <div className="quiz-progress-header">
-                <div className="quiz-logo-container">
-                    <img src={logoIcon} alt="LoveBug logo" className="quiz-logo" />
-                    <span className="quiz-logo-text">LoveBug</span>
-                </div>
+                <Link to="/" className="quiz-logo-container">
+                    <div className="quiz-logo-text">
+                        <img src={logoIcon} alt="LoveBug Logo" className="quiz-logo" />LoveBug
+                    </div>
+                </Link>
                 <div className="quiz-step-tracker">
                     {step} / {totalSteps}
                 </div>
             </div>
-            
+
             <div className="quiz-progress-container">
-                <div 
-                    className="quiz-progress-bar" 
+                <div
+                    className="quiz-progress-bar"
                     style={{ width: `${progressPercentage}%` }}
                 ></div>
             </div>
-            
+
             <div className="quiz-content">
                 {renderStepContent()}
             </div>
@@ -161,11 +190,11 @@ const QuizManager = ({ responses, setResponses }) => {
                 ) : (
                     <Button isLink to="/" variant="quiz-secondary">Cancel</Button>
                 )}
-                
+
                 {step < totalSteps ? (
-                    <Button onClick={handleNext} variant="quiz-primary">Continue</Button>
+                    <Button onClick={handleNext} variant="quiz-primary" disabled={!isCurrentStepAnswered}>Continue</Button>
                 ) : (
-                    <Button onClick={handleSubmit} variant={allAnswered ? "quiz-primary" : "quiz-secondary"}>Submit</Button>
+                    <Button onClick={handleSubmit} variant="quiz-primary" disabled={!allAnswered}>Submit</Button>
                 )}
             </div>
         </div>
