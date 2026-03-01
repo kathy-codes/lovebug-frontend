@@ -36,10 +36,31 @@ const QuizManager = ({ responses, setResponses }) => {
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (allAnswered) {
-            console.log("Quiz submitted!", responses);
-            navigate("/results");
+            try {
+                const response = await fetch("http://localhost:8080/api/quiz", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(responses)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log("Quiz submitted!", data);
+                    if (data && data.user_id) {
+                        navigate(`/results/${data.user_id}`);
+                    } else {
+                        console.error("Missing user_id from response.");
+                    }
+                } else {
+                    console.error("Failed to submit quiz");
+                }
+            } catch (error) {
+                console.error("Error submitting quiz:", error);
+            }
         }
     };
 
