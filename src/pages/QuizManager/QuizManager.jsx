@@ -51,6 +51,14 @@ const QuizManager = ({ responses, setResponses }) => {
                     const data = await response.json();
                     console.log("Quiz submitted!", data);
                     if (data && data.user_id) {
+                        setResponses({
+                            age: "", gender: "", sexual_orientation: "", education: "",
+                            location: "", career_field: "", career_ambition: "",
+                            openness: "", extraversion: "", agreeableness: "",
+                            conscientiousness: "", chronotype: "", spontaneity: "",
+                            love_language: "", emotional_expressiveness: ""
+                        });
+                        setStep(1);
                         navigate(`/results/${data.user_id}`);
                     } else {
                         console.error("Missing user_id from response.");
