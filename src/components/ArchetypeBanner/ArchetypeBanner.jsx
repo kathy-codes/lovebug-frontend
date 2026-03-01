@@ -6,7 +6,7 @@ import './ArchetypeBanner.scss';
 const ArchetypeBanner = ({ archetype, traits }) => {
     return (
         <section className="archetype-banner">
-            <Typography variant="h1" className="archetype-banner__title">Love bug has analyzed your responses!</Typography>
+            <Typography variant="h1" className="archetype-banner__title">LoveBug has analyzed your responses!</Typography>
             <Typography variant="h3" className="archetype-banner__subtitle">Your personality archetype is...</Typography>
 
             <div className="archetype-banner__cards">
