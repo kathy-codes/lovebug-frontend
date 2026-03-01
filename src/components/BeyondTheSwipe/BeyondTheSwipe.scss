@@ -78,8 +78,7 @@
         border-color: $color-secondary-navy;
 
         &:hover {
-            background-color: darken($color-secondary-navy, 10%);
-            border-color: darken($color-secondary-navy, 10%);
+            background-color: #313aa4;
             color: $color-primary-white;
         }
     }
