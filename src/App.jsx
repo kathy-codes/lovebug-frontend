@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="app-layout">
       <div className="app-layout__content">
-        <BrowserRouter basename={import.meta.env.DEV ? '/' : '/lovebug-frontend'}>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/quizmanager" element={<QuizManager responses={responses} setResponses={setResponses} />} />
