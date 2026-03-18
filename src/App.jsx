@@ -7,6 +7,7 @@ import './App.scss'
 
 function App() {
   const [responses, setResponses] = useState({
+    name: "",
     age: "",
     gender: "",
     sexual_orientation: "",
@@ -28,7 +29,7 @@ function App() {
   return (
     <div className="app-layout">
       <div className="app-layout__content">
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.DEV ? '/' : '/lovebug-frontend'}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/quizmanager" element={<QuizManager responses={responses} setResponses={setResponses} />} />
