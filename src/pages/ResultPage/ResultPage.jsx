@@ -10,6 +10,10 @@ import Typography from '../../components/Typography/Typography';
 import logoIcon from '../../assets/logo/lovebug.svg';
 import './ResultPage.scss';
 
+const API_BASE_URL = import.meta.env.DEV 
+    ? "http://localhost:8080" 
+    : "https://lovebug-4631e048a07e.herokuapp.com";
+
 const ARCHETYPE_MAP = {
     "The Adventurer": "Always seeking the next thrill",
     "The Guardian": "Reliable warmth, lasting glow",
@@ -82,8 +86,8 @@ const ResultPage = () => {
                 return;
             }
             try {
-                const userRes = await fetch(`http://localhost:8080/api/users/${id}`);
-                const matchesRes = await fetch(`http://localhost:8080/api/matches/${id}`);
+                const userRes = await fetch(`${API_BASE_URL}/api/users/${id}`);
+                const matchesRes = await fetch(`${API_BASE_URL}/api/matches/${id}`);
                 const userData = await userRes.json();
                 const matchesData = await matchesRes.json();
 
@@ -128,7 +132,7 @@ const ResultPage = () => {
 
                 <div className="result-page__safety-message">
                     <Typography variant="h2" className="safety-text">Stay safe and don't bug people!</Typography>
-                    <img src={logoIcon} alt="Lovebug" className="safety-icon" />
+                    <img src={logoIcon} alt="Lovebug" />
                 </div>
             </main>
             <Footer />
