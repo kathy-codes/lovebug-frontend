@@ -19,6 +19,10 @@ import EmotionalExpressiveness from "../../components/quizquestions/EmotionalExp
 import logoIcon from "../../assets/logo/lovebug.svg";
 import "./QuizManager.scss";
 
+const API_BASE_URL = import.meta.env.DEV 
+    ? "http://localhost:8080" 
+    : "https://lovebug-4631e048a07e.herokuapp.com";
+
 const QuizManager = ({ responses, setResponses }) => {
     const [step, setStep] = useState(1);
     const totalSteps = 15;
@@ -37,38 +41,39 @@ const QuizManager = ({ responses, setResponses }) => {
     };
 
     const handleSubmit = async () => {
-        if (allAnswered) {
-            try {
-                const response = await fetch("http://localhost:8080/api/quiz", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(responses)
-                });
+        const finalResponses = {
+            ...responses,
+            name: responses.name || "Lovebug User" 
+        };
 
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log("Quiz submitted!", data);
-                    if (data && data.user_id) {
-                        setResponses({
-                            age: "", gender: "", sexual_orientation: "", education: "",
-                            location: "", career_field: "", career_ambition: "",
-                            openness: "", extraversion: "", agreeableness: "",
-                            conscientiousness: "", chronotype: "", spontaneity: "",
-                            love_language: "", emotional_expressiveness: ""
-                        });
-                        setStep(1);
-                        navigate(`/results/${data.user_id}`);
-                    } else {
-                        console.error("Missing user_id from response.");
-                    }
-                } else {
-                    console.error("Failed to submit quiz");
+        try {
+            const response = await fetch(`${API_BASE_URL}/api/quiz`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(finalResponses)
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data.user_id) {
+                    setResponses({
+                        name: "", age: "", gender: "", sexual_orientation: "", 
+                        education: "", location: "", career_field: "", 
+                        career_ambition: "", openness: "", extraversion: "", 
+                        agreeableness: "", conscientiousness: "", 
+                        chronotype: "", spontaneity: "", 
+                        love_language: "", emotional_expressiveness: ""
+                    });
+                    setStep(1);
+                    navigate(`/results/${data.user_id}`);
                 }
-            } catch (error) {
-                console.error("Error submitting quiz:", error);
+            } else {
+                console.error("Failed to submit quiz");
             }
+        } catch (error) {
+            console.error("Error submitting quiz:", error);
         }
     };
 
@@ -166,7 +171,10 @@ const QuizManager = ({ responses, setResponses }) => {
     const currentKey = stepKeys[step];
     const isCurrentStepAnswered = responses && responses[currentKey] !== "" && responses[currentKey] !== undefined && responses[currentKey] !== null;
 
-    const allAnswered = Object.values(responses || {}).every(val => val !== "" && val !== undefined && val !== null);
+    const allAnswered = Object.keys(stepKeys).every(key => {
+        const dataKey = stepKeys[key];
+        return responses[dataKey] !== "" && responses[dataKey] !== null;
+    });
 
     return (
         <div className="quiz-manager">
